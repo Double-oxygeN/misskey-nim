@@ -1,0 +1,41 @@
+version: 2.1
+
+commands:
+  generate-docs:
+    description: Generate documentation.
+    parameters:
+      out-dir:
+        type: string
+        default: docs
+    steps:
+      - run:
+          command: nim doc --project --outDir:<<parameters.out-dir>> --git.url:'https://github.com/Double-oxygeN/misskey-nim' --git.commit:$CIRCLE_BRANCH src/misskey-nim
+
+jobs:
+  exec-tests_1_6_12:
+    docker:
+      - image: nimlang/nim:1.6.12
+
+    steps: &steps-tests
+      - checkout
+      - run:
+          name: Executes test suite
+          command: nimble test
+      - generate-docs
+
+  exec-tests_latest:
+    docker:
+      - image: nimlang/nim:latest
+
+    steps: *steps-tests
+
+workflows:
+  exec-tests-and-generate-docs:
+    jobs:
+      - exec-tests_1_6_12:
+          filters: &filters-tests
+            branches:
+              ignore: docs
+
+      - exec-tests_latest:
+          filters: *filters-tests
