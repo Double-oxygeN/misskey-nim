@@ -1,0 +1,69 @@
+version: 2.1
+
+commands:
+  generate-docs:
+    description: Generate documentation.
+    parameters:
+      out-dir:
+        type: string
+        default: docs
+    steps:
+      - run:
+          command: nim doc --project --outDir:<<parameters.out-dir>> --git.url:'https://github.com/Double-oxygeN/misskey-nim' --git.commit:$CIRCLE_BRANCH src/misskey
+
+jobs:
+  exec-tests_1_6_12:
+    docker:
+      - image: nimlang/nim:1.6.12
+
+    steps: &steps-tests
+      - checkout
+      - run:
+          name: Executes test suite
+          command: nimble test
+      - generate-docs
+
+  exec-tests_latest:
+    docker:
+      - image: nimlang/nim:latest
+
+    steps: *steps-tests
+
+  update-docs:
+    docker:
+      - image: nimlang/nim:1.6.12
+
+    steps:
+      - add_ssh_keys:
+          fingerprints:
+            - c5:2e:e3:11:8d:18:ec:c4:1a:ef:35:8d:08:8b:be:ff
+      - checkout
+      - generate-docs:
+          out-dir: ../docs
+      - run:
+          name: Push to GitHub Pages
+          command: |
+            git config --global user.email $GIT_CONFIG_USER_EMAIL
+            git config --global user.name $GIT_CONFIG_USERNAME
+            git checkout docs || git checkout --orphan docs
+            git reset
+            cp -R ../docs ./
+            git add docs .circleci
+            git commit -m ':memo: Update documentation [ci skip]'
+            git push --force-with-lease origin docs
+
+workflows:
+  exec-tests-and-generate-docs:
+    jobs:
+      - exec-tests_1_6_12:
+          filters: &filters-tests
+            branches:
+              ignore: docs
+
+      - exec-tests_latest:
+          filters: *filters-tests
+
+      - update-docs:
+          requires:
+            - exec-tests_1_6_12
+            - exec-tests_latest
