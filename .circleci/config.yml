@@ -9,7 +9,7 @@ commands:
         default: docs
     steps:
       - run:
-          command: nim doc --project --outDir:<<parameters.out-dir>> --git.url:'https://github.com/Double-oxygeN/misskey-nim' --git.commit:$CIRCLE_BRANCH src/misskey-nim
+          command: nim doc --project --outDir:<<parameters.out-dir>> --git.url:'https://github.com/Double-oxygeN/misskey-nim' --git.commit:$CIRCLE_BRANCH src/misskey
 
 jobs:
   exec-tests_1_6_12:
