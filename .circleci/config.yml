@@ -67,3 +67,6 @@ workflows:
           requires:
             - exec-tests_1_6_12
             - exec-tests_latest
+          filters:
+            branches:
+              only: master
