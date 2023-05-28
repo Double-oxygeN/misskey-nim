@@ -1,5 +1,6 @@
 discard """
   targets: "c"
+  matrix: "--mm:orc;--mm:orc -d:nimStressOrc;--mm:refc"
 """
 
 import ../../../src/misskey/clients
