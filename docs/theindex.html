@@ -70,12 +70,67 @@ window.addEventListener('DOMContentLoaded', main);
 <div class="document" id="documentId">
   <div class="container">
     <h1 class="title">Index</h1>
-    
+    Modules: <a href="misskey/clients.html">misskey/clients</a>.<br/><p /><h2>API symbols</h2>
+<dl><dt><a name="authorize" href="#authorize"><span>authorize:</span></a></dt><dd><ul class="simple">
+<li><a class="reference external"
+          data-doc-search-tag="clients: authorize[T](client: MisskeyClient[T]; accessToken: sink string)" href="misskey/clients.html#authorize%2CMisskeyClient%5BT%5D%2Csinkstring">clients: authorize[T](client: MisskeyClient[T]; accessToken: sink string)</a></li>
+          </ul></dd>
+<dt><a name="HeaderField" href="#HeaderField"><span>HeaderField:</span></a></dt><dd><ul class="simple">
+<li><a class="reference external"
+          data-doc-search-tag="clients: HeaderField" href="misskey/clients.html#HeaderField">clients: HeaderField</a></li>
+          </ul></dd>
+<dt><a name="isAuthorized" href="#isAuthorized"><span>isAuthorized:</span></a></dt><dd><ul class="simple">
+<li><a class="reference external"
+          data-doc-search-tag="clients: isAuthorized[T](client: MisskeyClient[T]): bool" href="misskey/clients.html#isAuthorized%2CMisskeyClient%5BT%5D">clients: isAuthorized[T](client: MisskeyClient[T]): bool</a></li>
+          </ul></dd>
+<dt><a name="JsonPostable" href="#JsonPostable"><span>JsonPostable:</span></a></dt><dd><ul class="simple">
+<li><a class="reference external"
+          data-doc-search-tag="clients: JsonPostable" href="misskey/clients.html#JsonPostable">clients: JsonPostable</a></li>
+          </ul></dd>
+<dt><a name="JsonResponse" href="#JsonResponse"><span>JsonResponse:</span></a></dt><dd><ul class="simple">
+<li><a class="reference external"
+          data-doc-search-tag="clients: JsonResponse" href="misskey/clients.html#JsonResponse">clients: JsonResponse</a></li>
+          </ul></dd>
+<dt><a name="MisskeyClient" href="#MisskeyClient"><span>MisskeyClient:</span></a></dt><dd><ul class="simple">
+<li><a class="reference external"
+          data-doc-search-tag="clients: MisskeyClient" href="misskey/clients.html#MisskeyClient">clients: MisskeyClient</a></li>
+          </ul></dd>
+<dt><a name="newMisskeyClient" href="#newMisskeyClient"><span>newMisskeyClient:</span></a></dt><dd><ul class="simple">
+<li><a class="reference external"
+          data-doc-search-tag="clients: newMisskeyClient[T: JsonPostable](host: string; httpClient: T): MisskeyClient[T]" href="misskey/clients.html#newMisskeyClient%2Cstring%2CT">clients: newMisskeyClient[T: JsonPostable](host: string; httpClient: T): MisskeyClient[T]</a></li>
+          <li><a class="reference external"
+          data-doc-search-tag="clients: newMisskeyClient[T: JsonPostable](host: Uri; httpClient: T): MisskeyClient[T]" href="misskey/clients.html#newMisskeyClient%2CUri%2CT">clients: newMisskeyClient[T: JsonPostable](host: Uri; httpClient: T): MisskeyClient[T]</a></li>
+          <li><a class="reference external"
+          data-doc-search-tag="clients: newMisskeyClient(host: Uri | string): MisskeyClient[HttpClient]" href="misskey/clients.html#newMisskeyClient.t">clients: newMisskeyClient(host: Uri | string): MisskeyClient[HttpClient]</a></li>
+          </ul></dd>
+<dt><a name="postJson" href="#postJson"><span>postJson:</span></a></dt><dd><ul class="simple">
+<li><a class="reference external"
+          data-doc-search-tag="clients: postJson(httpClient: HttpClient; uri: Uri; body: JsonNode;
+         headers: openArray[HeaderField]): JsonResponse" href="misskey/clients.html#postJson%2CHttpClient%2CUri%2CJsonNode%2CopenArray%5BHeaderField%5D">clients: postJson(httpClient: HttpClient; uri: Uri; body: JsonNode;
+         headers: openArray[HeaderField]): JsonResponse</a></li>
+          </ul></dd>
+<dt><a name="postMultipart" href="#postMultipart"><span>postMultipart:</span></a></dt><dd><ul class="simple">
+<li><a class="reference external"
+          data-doc-search-tag="clients: postMultipart(httpClient: HttpClient; uri: Uri; multipart: MultipartData;
+              headers: openArray[HeaderField]): JsonResponse" href="misskey/clients.html#postMultipart%2CHttpClient%2CUri%2CMultipartData%2CopenArray%5BHeaderField%5D">clients: postMultipart(httpClient: HttpClient; uri: Uri; multipart: MultipartData;
+              headers: openArray[HeaderField]): JsonResponse</a></li>
+          </ul></dd>
+<dt><a name="request" href="#request"><span>request:</span></a></dt><dd><ul class="simple">
+<li><a class="reference external"
+          data-doc-search-tag="clients: request[T](client: MisskeyClient[T]; endpoint: string; body: JsonNode;
+           headers: openArray[HeaderField] = newSeq[HeaderField]()): JsonResponse" href="misskey/clients.html#request%2CMisskeyClient%5BT%5D%2Cstring%2CJsonNode%2CopenArray%5BHeaderField%5D">clients: request[T](client: MisskeyClient[T]; endpoint: string; body: JsonNode;
+           headers: openArray[HeaderField] = newSeq[HeaderField]()): JsonResponse</a></li>
+          </ul></dd>
+<dt><a name="unauthorize" href="#unauthorize"><span>unauthorize:</span></a></dt><dd><ul class="simple">
+<li><a class="reference external"
+          data-doc-search-tag="clients: unauthorize[T](client: MisskeyClient[T])" href="misskey/clients.html#unauthorize%2CMisskeyClient%5BT%5D">clients: unauthorize[T](client: MisskeyClient[T])</a></li>
+          </ul></dd>
+</dl>
     <div class="row">
       <div class="twelve-columns footer">
         <span class="nim-sprite"></span>
         <br/>
-        <small style="color: var(--hint);">Made with Nim. Generated: 2023-05-24 12:28:47 UTC</small>
+        <small style="color: var(--hint);">Made with Nim. Generated: 2023-05-28 10:00:15 UTC</small>
       </div>
     </div>
   </div>
