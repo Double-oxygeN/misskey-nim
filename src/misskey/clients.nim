@@ -116,8 +116,3 @@ proc request*[T](client: MisskeyClient[T]; endpoint: string; body: JsonNode; hea
     bodyAux["i"] = client.accessToken.newJString()
 
   result = client.httpClient.postJson(client.host / "api" / endpoint, bodyAux, headers)
-
-
-when isMainModule:
-  let client = newMisskeyClient("http://localhost:28080")
-  echo client.request("endpoints", newJObject())
