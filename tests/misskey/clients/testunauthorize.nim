@@ -30,4 +30,5 @@ client.authorize(testAccessToken)
 
 client.unauthorize()
 
+check not client.isAuthorized()
 discard client.request(testEndpoint, newJObject())

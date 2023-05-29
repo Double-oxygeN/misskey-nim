@@ -29,4 +29,5 @@ let client = newMisskeyClient(testMisskeyHost, new MockedHttpClient)
 
 client.authorize(testAccessToken)
 
+check client.isAuthorized()
 discard client.request(testEndpoint, newJObject())
