@@ -27,6 +27,7 @@ proc postMultipart(client: MockedHttpClient; uri: Uri; multipart: MultipartData;
 
 let client = newMisskeyClient(testMisskeyHost, new MockedHttpClient)
 
-client.authorize(testAccessToken)
+client.putAccessToken(testAccessToken)
 
+check client.hasAccessToken()
 discard client.request(testEndpoint, newJObject())
