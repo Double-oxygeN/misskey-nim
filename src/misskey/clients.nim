@@ -100,7 +100,7 @@ func isAuthorized*[T](client: MisskeyClient[T]): bool =
   result = client.accessToken.len > 0
 
 
-proc authorize*[T](client: MisskeyClient[T]; accessToken: sink string) =
+proc authorize*[T](client: MisskeyClient[T]; accessToken: sink string) {.raises: [ValueError].} =
   ## Authorize the client.
   ## If the access token is empty, this raises `ValueError`.
   if accessToken.len == 0:
