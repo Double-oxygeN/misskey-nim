@@ -7,7 +7,7 @@ postMultipart	misskey/clients.html#postMultipart,HttpClient,Uri,MultipartData,op
 newMisskeyClient	misskey/clients.html#newMisskeyClient,Uri,T	clients: newMisskeyClient[T: JsonPostable](host: Uri; httpClient: T): MisskeyClient[T]	
 newMisskeyClient	misskey/clients.html#newMisskeyClient,string,T	clients: newMisskeyClient[T: JsonPostable](host: string; httpClient: T): MisskeyClient[T]	
 newMisskeyClient	misskey/clients.html#newMisskeyClient.t	clients: newMisskeyClient(host: Uri | string): MisskeyClient[HttpClient]	
-isAuthorized	misskey/clients.html#isAuthorized,MisskeyClient[T]	clients: isAuthorized[T](client: MisskeyClient[T]): bool	
-authorize	misskey/clients.html#authorize,MisskeyClient[T],sinkstring	clients: authorize[T](client: MisskeyClient[T]; accessToken: sink string)	
-unauthorize	misskey/clients.html#unauthorize,MisskeyClient[T]	clients: unauthorize[T](client: MisskeyClient[T])	
+hasAccessToken	misskey/clients.html#hasAccessToken,MisskeyClient[T]	clients: hasAccessToken[T](client: MisskeyClient[T]): bool	
+putAccessToken	misskey/clients.html#putAccessToken,MisskeyClient[T],sinkstring	clients: putAccessToken[T](client: MisskeyClient[T]; accessToken: sink string)	
+removeAccessToken	misskey/clients.html#removeAccessToken,MisskeyClient[T]	clients: removeAccessToken[T](client: MisskeyClient[T])	
 request	misskey/clients.html#request,MisskeyClient[T],string,JsonNode,openArray[HeaderField]	clients: request[T](client: MisskeyClient[T]; endpoint: string; body: JsonNode;\n           headers: openArray[HeaderField] = newSeq[HeaderField]()): JsonResponse	

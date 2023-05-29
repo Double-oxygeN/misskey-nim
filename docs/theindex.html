@@ -71,17 +71,13 @@ window.addEventListener('DOMContentLoaded', main);
   <div class="container">
     <h1 class="title">Index</h1>
     Modules: <a href="misskey/clients.html">misskey/clients</a>.<br/><p /><h2>API symbols</h2>
-<dl><dt><a name="authorize" href="#authorize"><span>authorize:</span></a></dt><dd><ul class="simple">
+<dl><dt><a name="hasAccessToken" href="#hasAccessToken"><span>hasAccessToken:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
-          data-doc-search-tag="clients: authorize[T](client: MisskeyClient[T]; accessToken: sink string)" href="misskey/clients.html#authorize%2CMisskeyClient%5BT%5D%2Csinkstring">clients: authorize[T](client: MisskeyClient[T]; accessToken: sink string)</a></li>
+          data-doc-search-tag="clients: hasAccessToken[T](client: MisskeyClient[T]): bool" href="misskey/clients.html#hasAccessToken%2CMisskeyClient%5BT%5D">clients: hasAccessToken[T](client: MisskeyClient[T]): bool</a></li>
           </ul></dd>
 <dt><a name="HeaderField" href="#HeaderField"><span>HeaderField:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
           data-doc-search-tag="clients: HeaderField" href="misskey/clients.html#HeaderField">clients: HeaderField</a></li>
-          </ul></dd>
-<dt><a name="isAuthorized" href="#isAuthorized"><span>isAuthorized:</span></a></dt><dd><ul class="simple">
-<li><a class="reference external"
-          data-doc-search-tag="clients: isAuthorized[T](client: MisskeyClient[T]): bool" href="misskey/clients.html#isAuthorized%2CMisskeyClient%5BT%5D">clients: isAuthorized[T](client: MisskeyClient[T]): bool</a></li>
           </ul></dd>
 <dt><a name="JsonPostable" href="#JsonPostable"><span>JsonPostable:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
@@ -115,22 +111,26 @@ window.addEventListener('DOMContentLoaded', main);
               headers: openArray[HeaderField]): JsonResponse" href="misskey/clients.html#postMultipart%2CHttpClient%2CUri%2CMultipartData%2CopenArray%5BHeaderField%5D">clients: postMultipart(httpClient: HttpClient; uri: Uri; multipart: MultipartData;
               headers: openArray[HeaderField]): JsonResponse</a></li>
           </ul></dd>
+<dt><a name="putAccessToken" href="#putAccessToken"><span>putAccessToken:</span></a></dt><dd><ul class="simple">
+<li><a class="reference external"
+          data-doc-search-tag="clients: putAccessToken[T](client: MisskeyClient[T]; accessToken: sink string)" href="misskey/clients.html#putAccessToken%2CMisskeyClient%5BT%5D%2Csinkstring">clients: putAccessToken[T](client: MisskeyClient[T]; accessToken: sink string)</a></li>
+          </ul></dd>
+<dt><a name="removeAccessToken" href="#removeAccessToken"><span>removeAccessToken:</span></a></dt><dd><ul class="simple">
+<li><a class="reference external"
+          data-doc-search-tag="clients: removeAccessToken[T](client: MisskeyClient[T])" href="misskey/clients.html#removeAccessToken%2CMisskeyClient%5BT%5D">clients: removeAccessToken[T](client: MisskeyClient[T])</a></li>
+          </ul></dd>
 <dt><a name="request" href="#request"><span>request:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
           data-doc-search-tag="clients: request[T](client: MisskeyClient[T]; endpoint: string; body: JsonNode;
            headers: openArray[HeaderField] = newSeq[HeaderField]()): JsonResponse" href="misskey/clients.html#request%2CMisskeyClient%5BT%5D%2Cstring%2CJsonNode%2CopenArray%5BHeaderField%5D">clients: request[T](client: MisskeyClient[T]; endpoint: string; body: JsonNode;
            headers: openArray[HeaderField] = newSeq[HeaderField]()): JsonResponse</a></li>
           </ul></dd>
-<dt><a name="unauthorize" href="#unauthorize"><span>unauthorize:</span></a></dt><dd><ul class="simple">
-<li><a class="reference external"
-          data-doc-search-tag="clients: unauthorize[T](client: MisskeyClient[T])" href="misskey/clients.html#unauthorize%2CMisskeyClient%5BT%5D">clients: unauthorize[T](client: MisskeyClient[T])</a></li>
-          </ul></dd>
 </dl>
     <div class="row">
       <div class="twelve-columns footer">
         <span class="nim-sprite"></span>
         <br/>
-        <small style="color: var(--hint);">Made with Nim. Generated: 2023-05-28 10:16:50 UTC</small>
+        <small style="color: var(--hint);">Made with Nim. Generated: 2023-05-29 12:29:50 UTC</small>
       </div>
     </div>
   </div>
