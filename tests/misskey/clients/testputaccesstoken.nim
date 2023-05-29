@@ -12,13 +12,13 @@ const
   testEndpoint = "admin/meta"
   testAccessToken = "ABCDefgh1234"
 
-# `unauthorize` should unset "i" field in the body of every request.
+# `authorize` should set "i" field in the body of every request.
 
 type
   MockedHttpClient = ref object
 
 proc postJson(client: MockedHttpClient; uri: Uri; body: JsonNode; headers: openArray[HeaderField]): JsonResponse =
-  check not body.hasKey("i")
+  check body["i"].getStr() == testAccessToken
 
 
 proc postMultipart(client: MockedHttpClient; uri: Uri; multipart: MultipartData; headers: openArray[HeaderField]): JsonResponse =
@@ -26,9 +26,8 @@ proc postMultipart(client: MockedHttpClient; uri: Uri; multipart: MultipartData;
 
 
 let client = newMisskeyClient(testMisskeyHost, new MockedHttpClient)
-client.authorize(testAccessToken)
 
-client.unauthorize()
+client.putAccessToken(testAccessToken)
 
-check not client.isAuthorized()
+check client.hasAccessToken()
 discard client.request(testEndpoint, newJObject())

@@ -84,7 +84,7 @@ template newMisskeyClient*(host: Uri | string): MisskeyClient[HttpClient] =
   newMisskeyClient[HttpClient](host, newHttpClient())
 
 
-func isAuthorized*[T](client: MisskeyClient[T]): bool =
+func hasAccessToken*[T](client: MisskeyClient[T]): bool =
   ## Check if the client has an access token.
   ## If the client has an access token, this returns `true`.
   ## Otherwise, this returns `false`.
@@ -92,16 +92,16 @@ func isAuthorized*[T](client: MisskeyClient[T]): bool =
   ## :Note: This does not check if the access token is valid.
   runnableExamples:
     let client = newMisskeyClient("https://misskey.example.com")
-    assert not client.isAuthorized()
+    assert not client.hasAccessToken()
 
-    client.authorize("dummyAccessToken")
-    assert client.isAuthorized()
+    client.putAccessToken("dummyAccessToken")
+    assert client.hasAccessToken()
 
   result = client.accessToken.len > 0
 
 
-proc authorize*[T](client: MisskeyClient[T]; accessToken: sink string) {.raises: [ValueError].} =
-  ## Authorize the client.
+proc putAccessToken*[T](client: MisskeyClient[T]; accessToken: sink string) {.raises: [ValueError].} =
+  ## Put an access token to the client.
   ## If the access token is empty, this raises `ValueError`.
   if accessToken.len == 0:
     raise ValueError.newException("The access token is empty.")
@@ -109,8 +109,8 @@ proc authorize*[T](client: MisskeyClient[T]; accessToken: sink string) {.raises:
   client.accessToken = accessToken
 
 
-proc unauthorize*[T](client: MisskeyClient[T]) =
-  ## Unauthorize the client.
+proc removeAccessToken*[T](client: MisskeyClient[T]) =
+  ## Remove the access token from the client.
   client.accessToken = ""
 
 
@@ -121,8 +121,8 @@ proc request*[T](client: MisskeyClient[T]; endpoint: string; body: JsonNode; hea
   let bodyAux = body.copy()
   if body.hasKey("i"):
     # TODO: Use logger instead of stderr.
-    stderr.writeLine "[Misskey] Use `authorize` instead of `i` in `body`."
-  elif isAuthorized(client):
+    stderr.writeLine "[Misskey] Use `putAccessToken` instead of `i` in `body`."
+  elif client.hasAccessToken():
     bodyAux["i"] = client.accessToken.newJString()
 
   result = client.httpClient.postJson(client.host / "api" / endpoint, bodyAux, headers)
