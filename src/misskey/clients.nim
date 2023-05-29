@@ -85,13 +85,23 @@ template newMisskeyClient*(host: Uri | string): MisskeyClient[HttpClient] =
 
 
 func isAuthorized*[T](client: MisskeyClient[T]): bool =
-  ## Check if the client is authorized.
+  ## Check if the client has an access token.
+  ## If the client has an access token, this returns `true`.
+  ## Otherwise, this returns `false`.
+  ##
+  ## :Note: This does not check if the access token is valid.
+  runnableExamples:
+    let client = newMisskeyClient("https://misskey.example.com")
+    assert not client.isAuthorized()
+
+    client.authorize("dummyAccessToken")
+    assert client.isAuthorized()
+
   result = client.accessToken.len > 0
 
 
 proc authorize*[T](client: MisskeyClient[T]; accessToken: sink string) =
   ## Authorize the client.
-  ## Ensure that the access token is valid.
   ## If the access token is empty, this raises `ValueError`.
   if accessToken.len == 0:
     raise ValueError.newException("The access token is empty.")
