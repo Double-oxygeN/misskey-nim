@@ -12,10 +12,8 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-import misskey/clients
-import misskey/models
-import misskey/apis
+import models/utils/versions
+import models/meta, models/meta/[ads, features, policies]
 
-export clients
-export models
-export apis
+export versions
+export meta, ads, features, policies

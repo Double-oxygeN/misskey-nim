@@ -12,10 +12,8 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-import misskey/clients
-import misskey/models
-import misskey/apis
+from apis/errors import MisskeyResponseError
+import apis/meta
 
-export clients
-export models
-export apis
+export MisskeyResponseError
+export meta
