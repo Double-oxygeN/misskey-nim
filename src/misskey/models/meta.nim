@@ -35,7 +35,9 @@ type
     hcaptchaSiteKey*, recaptchaSiteKey*, turnstileSiteKey*: Option[string]
     swPublickey*: Option[string]
     themeColor*: Option[Color]
-    mascotImageUrl*, bannerUrl*, errorImageUrl*: Uri
+    mascotImageUrl*: Uri
+    bannerUrl*: Option[Uri]
+    infoImageUrl*, serverErrorImageUrl*, notFoundImageUrl*: Option[Uri]
     iconUrl*, backgroundImageUrl*, logoImageUrl*: Option[Uri]
     maxNoteTextLength*: Natural
     defaultLightTheme*, defaultDarkTheme*: Option[string]
@@ -47,7 +49,7 @@ type
     proxyAccountName*: Option[string]
     serverRules*: seq[string]
     policies*: Policies
-    mediaProxy*: string
+    mediaProxy*: Uri
     features*: Option[set[Feature]]
 
 
