@@ -1,0 +1,1 @@
+genModel	misskey/models/macros/parser.html#genModel.m,typedesc,untyped	parser: genModel(modelType: typedesc; procDecl: untyped): untyped	

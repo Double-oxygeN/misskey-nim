@@ -1,0 +1,18 @@
+SoftwareVersion	misskey/models/utils/versions.html#SoftwareVersion	versions: SoftwareVersion	
+`==`	misskey/models/utils/versions.html#==,SoftwareVersion,SoftwareVersion	versions: `==`(a, b: SoftwareVersion): bool	
+version	misskey/models/utils/versions.html#version,Natural,Natural,Natural,string	versions: version(major, minor, patch: Natural; prerelease = &quot;&quot;): SoftwareVersion	
+parseVersion	misskey/models/utils/versions.html#parseVersion,string	versions: parseVersion(versionStr: string): SoftwareVersion	
+`$`	misskey/models/utils/versions.html#$,SoftwareVersion	versions: `$`(version: SoftwareVersion): string	
+major	misskey/models/utils/versions.html#major,SoftwareVersion	versions: major(version: SoftwareVersion): Natural	
+minor	misskey/models/utils/versions.html#minor,SoftwareVersion	versions: minor(version: SoftwareVersion): Natural	
+patch	misskey/models/utils/versions.html#patch,SoftwareVersion	versions: patch(version: SoftwareVersion): Natural	
+prerelease	misskey/models/utils/versions.html#prerelease,SoftwareVersion	versions: prerelease(version: SoftwareVersion): string	
+`&lt;`	misskey/models/utils/versions.html#<,SoftwareVersion,SoftwareVersion	versions: `&lt;`(a, b: SoftwareVersion): bool	
+`&lt;`	misskey/models/utils/versions.html#<.t,string,SoftwareVersion	versions: `&lt;`(a: string; b: SoftwareVersion): bool	
+`&lt;`	misskey/models/utils/versions.html#<.t,SoftwareVersion,string	versions: `&lt;`(a: SoftwareVersion; b: string): bool	
+`&lt;=`	misskey/models/utils/versions.html#<=,SoftwareVersion,SoftwareVersion	versions: `&lt;=`(a, b: SoftwareVersion): bool	
+`&lt;=`	misskey/models/utils/versions.html#<=.t,string,SoftwareVersion	versions: `&lt;=`(a: string; b: SoftwareVersion): bool	
+`&lt;=`	misskey/models/utils/versions.html#<=.t,SoftwareVersion,string	versions: `&lt;=`(a: SoftwareVersion; b: string): bool	
+split	misskey/models/utils/versions.html#split,SoftwareVersion	versions: split(version: SoftwareVersion): tuple[major, minor, patch: Natural,\n                                       prerelease: string]	
+isPreRelease	misskey/models/utils/versions.html#isPreRelease,SoftwareVersion	versions: isPreRelease(version: SoftwareVersion): bool	
+isStable	misskey/models/utils/versions.html#isStable.t,SoftwareVersion	versions: isStable(version: SoftwareVersion): bool	

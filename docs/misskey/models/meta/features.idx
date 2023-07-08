@@ -1,0 +1,2 @@
+Feature	misskey/models/meta/features.html#Feature	features: Feature	
+toFeatures	misskey/models/meta/features.html#toFeatures,JsonNode	features: toFeatures(node: JsonNode): set[Feature]	

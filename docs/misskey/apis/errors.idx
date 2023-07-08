@@ -1,0 +1,2 @@
+MisskeyResponseError	misskey/apis/errors.html#MisskeyResponseError	errors: MisskeyResponseError	
+newMisskeyResponseError	misskey/apis/errors.html#newMisskeyResponseError,HttpCode,JsonNode	errors: newMisskeyResponseError(code: HttpCode; body: JsonNode): ref MisskeyResponseError	

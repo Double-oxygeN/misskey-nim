@@ -1,0 +1,2 @@
+Policies	misskey/models/meta/policies.html#Policies	policies: Policies	
+toPolicies	misskey/models/meta/policies.html#toPolicies,JsonNode	policies: toPolicies(node: JsonNode): Policies	

@@ -1,0 +1,6 @@
+ParseTable	misskey/models/macros/parsetables.html#ParseTable	parsetables: ParseTable	
+newEmptyParseTable	misskey/models/macros/parsetables.html#newEmptyParseTable,string	parsetables: newEmptyParseTable(modelName: string): ParseTable	
+newParseTableFromCall	misskey/models/macros/parsetables.html#newParseTableFromCall,NimNode,string	parsetables: newParseTableFromCall(call: NimNode; modelName: string): ParseTable	
+hasKey	misskey/models/macros/parsetables.html#hasKey,ParseTable,string	parsetables: hasKey(table: ParseTable; key: string): bool	
+`[]`	misskey/models/macros/parsetables.html#[],ParseTable,string	parsetables: `[]`(table: ParseTable; key: string): NimNode	
+fieldNodeIdent	misskey/models/macros/parsetables.html#fieldNodeIdent,ParseTable	parsetables: fieldNodeIdent(table: ParseTable): NimNode	

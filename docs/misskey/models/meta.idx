@@ -1,0 +1,2 @@
+Meta	misskey/models/meta.html#Meta	meta: Meta	
+toMeta	misskey/models/meta.html#toMeta,JsonNode	meta: toMeta(node: JsonNode): Meta	

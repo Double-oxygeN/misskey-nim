@@ -1,0 +1,1 @@
+meta	misskey/apis/meta.html#meta,MisskeyClient[T]	meta: meta[T](client: MisskeyClient[T]; detail = true): Meta	

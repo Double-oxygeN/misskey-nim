@@ -1,0 +1,2 @@
+Advertisement	misskey/models/meta/ads.html#Advertisement	ads: Advertisement	
+toAdvertisement	misskey/models/meta/ads.html#toAdvertisement,JsonNode	ads: toAdvertisement(node: JsonNode): Advertisement	
