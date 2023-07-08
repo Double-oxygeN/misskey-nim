@@ -1,0 +1,3 @@
+RequestParam	misskey/apis/endpoint.html#RequestParam	endpoint: RequestParam	
+hasEndpoint	misskey/apis/endpoint.html#hasEndpoint,MisskeyClient[T],string	endpoint: hasEndpoint[T](client: MisskeyClient[T]; path: string): bool	
+availableParams	misskey/apis/endpoint.html#availableParams,MisskeyClient[T],string	endpoint: availableParams[T](client: MisskeyClient[T]; path: string): seq[RequestParam]	

@@ -70,7 +70,7 @@ window.addEventListener('DOMContentLoaded', main);
 <div class="document" id="documentId">
   <div class="container">
     <h1 class="title">Index</h1>
-    Modules: <a href="misskey/apis/endpoints.html">misskey/apis/endpoints</a>, <a href="misskey/apis/errors.html">misskey/apis/errors</a>, <a href="misskey/apis/meta.html">misskey/apis/meta</a>, <a href="misskey/apis/ping.html">misskey/apis/ping</a>, <a href="misskey/clients.html">misskey/clients</a>, <a href="misskey/models/macros/parser.html">misskey/models/macros/parser</a>, <a href="misskey/models/macros/parsetables.html">misskey/models/macros/parsetables</a>, <a href="misskey/models/meta.html">misskey/models/meta</a>, <a href="misskey/models/meta/ads.html">misskey/models/meta/ads</a>, <a href="misskey/models/meta/features.html">misskey/models/meta/features</a>, <a href="misskey/models/meta/policies.html">misskey/models/meta/policies</a>, <a href="misskey/models/utils/versions.html">misskey/models/utils/versions</a>.<br/><p /><h2>API symbols</h2>
+    Modules: <a href="misskey/apis/endpoint.html">misskey/apis/endpoint</a>, <a href="misskey/apis/endpoints.html">misskey/apis/endpoints</a>, <a href="misskey/apis/errors.html">misskey/apis/errors</a>, <a href="misskey/apis/meta.html">misskey/apis/meta</a>, <a href="misskey/apis/ping.html">misskey/apis/ping</a>, <a href="misskey/clients.html">misskey/clients</a>, <a href="misskey/models/macros/parser.html">misskey/models/macros/parser</a>, <a href="misskey/models/macros/parsetables.html">misskey/models/macros/parsetables</a>, <a href="misskey/models/meta.html">misskey/models/meta</a>, <a href="misskey/models/meta/ads.html">misskey/models/meta/ads</a>, <a href="misskey/models/meta/features.html">misskey/models/meta/features</a>, <a href="misskey/models/meta/policies.html">misskey/models/meta/policies</a>, <a href="misskey/models/utils/versions.html">misskey/models/utils/versions</a>.<br/><p /><h2>API symbols</h2>
 <dl><dt><a name="%60%24%60" href="#%60%24%60"><span>`$`:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
           data-doc-search-tag="versions: `$`(version: SoftwareVersion): string" href="misskey/models/utils/versions.html#%24%2CSoftwareVersion">versions: `$`(version: SoftwareVersion): string</a></li>
@@ -103,6 +103,10 @@ window.addEventListener('DOMContentLoaded', main);
 <li><a class="reference external"
           data-doc-search-tag="ads: Advertisement" href="misskey/models/meta/ads.html#Advertisement">ads: Advertisement</a></li>
           </ul></dd>
+<dt><a name="availableParams" href="#availableParams"><span>availableParams:</span></a></dt><dd><ul class="simple">
+<li><a class="reference external"
+          data-doc-search-tag="endpoint: availableParams[T](client: MisskeyClient[T]; path: string): seq[RequestParam]" href="misskey/apis/endpoint.html#availableParams%2CMisskeyClient%5BT%5D%2Cstring">endpoint: availableParams[T](client: MisskeyClient[T]; path: string): seq[RequestParam]</a></li>
+          </ul></dd>
 <dt><a name="endpoints" href="#endpoints"><span>endpoints:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
           data-doc-search-tag="endpoints: endpoints[T](client: MisskeyClient[T]): seq[string]" href="misskey/apis/endpoints.html#endpoints%2CMisskeyClient%5BT%5D">endpoints: endpoints[T](client: MisskeyClient[T]): seq[string]</a></li>
@@ -122,6 +126,10 @@ window.addEventListener('DOMContentLoaded', main);
 <dt><a name="hasAccessToken" href="#hasAccessToken"><span>hasAccessToken:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
           data-doc-search-tag="clients: hasAccessToken[T](client: MisskeyClient[T]): bool" href="misskey/clients.html#hasAccessToken%2CMisskeyClient%5BT%5D">clients: hasAccessToken[T](client: MisskeyClient[T]): bool</a></li>
+          </ul></dd>
+<dt><a name="hasEndpoint" href="#hasEndpoint"><span>hasEndpoint:</span></a></dt><dd><ul class="simple">
+<li><a class="reference external"
+          data-doc-search-tag="endpoint: hasEndpoint[T](client: MisskeyClient[T]; path: string): bool" href="misskey/apis/endpoint.html#hasEndpoint%2CMisskeyClient%5BT%5D%2Cstring">endpoint: hasEndpoint[T](client: MisskeyClient[T]; path: string): bool</a></li>
           </ul></dd>
 <dt><a name="hasKey" href="#hasKey"><span>hasKey:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
@@ -241,6 +249,10 @@ window.addEventListener('DOMContentLoaded', main);
            headers: openArray[HeaderField] = newSeq[HeaderField]()): JsonResponse" href="misskey/clients.html#request%2CMisskeyClient%5BT%5D%2Cstring%2CJsonNode%2CopenArray%5BHeaderField%5D">clients: request[T](client: MisskeyClient[T]; endpoint: string; body: JsonNode;
            headers: openArray[HeaderField] = newSeq[HeaderField]()): JsonResponse</a></li>
           </ul></dd>
+<dt><a name="RequestParam" href="#RequestParam"><span>RequestParam:</span></a></dt><dd><ul class="simple">
+<li><a class="reference external"
+          data-doc-search-tag="endpoint: RequestParam" href="misskey/apis/endpoint.html#RequestParam">endpoint: RequestParam</a></li>
+          </ul></dd>
 <dt><a name="SoftwareVersion" href="#SoftwareVersion"><span>SoftwareVersion:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
           data-doc-search-tag="versions: SoftwareVersion" href="misskey/models/utils/versions.html#SoftwareVersion">versions: SoftwareVersion</a></li>
@@ -276,7 +288,7 @@ window.addEventListener('DOMContentLoaded', main);
       <div class="twelve-columns footer">
         <span class="nim-sprite"></span>
         <br/>
-        <small style="color: var(--hint);">Made with Nim. Generated: 2023-07-08 05:43:10 UTC</small>
+        <small style="color: var(--hint);">Made with Nim. Generated: 2023-07-08 06:20:15 UTC</small>
       </div>
     </div>
   </div>
