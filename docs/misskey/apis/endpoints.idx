@@ -1,0 +1,1 @@
+endpoints	misskey/apis/endpoints.html#endpoints,MisskeyClient[T]	endpoints: endpoints[T](client: MisskeyClient[T]): seq[string]	
