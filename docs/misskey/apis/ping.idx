@@ -1,0 +1,1 @@
+ping	misskey/apis/ping.html#ping,MisskeyClient[T]	ping: ping[T](client: MisskeyClient[T]): Time	
