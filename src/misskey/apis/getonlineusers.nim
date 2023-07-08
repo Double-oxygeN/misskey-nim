@@ -12,8 +12,16 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-from apis/errors import MisskeyResponseError
-import apis/[endpoint, endpoints, getonlineusers, meta, ping]
+import std/[json, httpcore]
+import ../clients
+import errors
 
-export MisskeyResponseError
-export endpoint, endpoints, getonlineusers, meta, ping
+proc getOnlineUsersCount*[T](client: MisskeyClient[T]): Natural =
+  ## Get the number of online users.
+  let response = client.request("get-online-users-count", newJObject())
+
+  if response.code == Http200:
+    result = response.body["count"].getInt()
+
+  else:
+    raise newMisskeyResponseError(response.code, response.body)
