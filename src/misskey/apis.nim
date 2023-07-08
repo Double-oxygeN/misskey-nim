@@ -13,7 +13,7 @@
 # limitations under the License.
 
 from apis/errors import MisskeyResponseError
-import apis/[endpoints, meta, ping]
+import apis/[endpoint, endpoints, meta, ping]
 
 export MisskeyResponseError
-export endpoints, meta, ping
+export endpoint, endpoints, meta, ping
