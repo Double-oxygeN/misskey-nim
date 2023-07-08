@@ -12,10 +12,18 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-import misskey/clients
-import misskey/models
-import misskey/apis
+import std/json
+import ../macros/parser
 
-export clients
-export models
-export apis
+type
+  Policies* = tuple
+    gtlAvailable, ltlAvailable: bool
+    canPublicNote, canInvite, canManageCustomEmojis, canSearchNotes, canHideAds: bool
+    driveCapacityMb: float
+    alwaysMarkNsfw: bool
+    pinLimit, antennaLimit, wordMuteLimit, webhookLimit, clipLimit, noteEachClipsLimit, userListLimit, userEachUserListsLimit: Natural
+    rateLimitFactor: float
+
+
+func toPolicies*(node: JsonNode): Policies {.genModel(Policies).} =
+  ## Converts a JSON node to a `Policies` object.

@@ -12,10 +12,19 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-import misskey/clients
-import misskey/models
-import misskey/apis
+import std/[json, uri]
+import ../macros/parser
 
-export clients
-export models
-export apis
+type
+  Advertisement* = tuple
+    id: string
+    place: string
+    url, imageUrl: Uri
+    ratio: float
+
+
+func toAdvertisement*(node: JsonNode): Advertisement {.genModel(Advertisement).} =
+  ## Converts a JSON node to an Advertisement.
+
+  parseTable(fieldNode):
+    Uri: fieldNode.getStr().parseUri()

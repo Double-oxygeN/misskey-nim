@@ -12,10 +12,17 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-import misskey/clients
-import misskey/models
-import misskey/apis
+from std/httpcore import HttpCode
+import std/json
 
-export clients
-export models
-export apis
+type
+  MisskeyResponseError* = object of CatchableError
+    code*: HttpCode
+    id*: string
+
+
+proc newMisskeyResponseError*(code: HttpCode; body: JsonNode): ref MisskeyResponseError =
+  new result
+  result.code = code
+  result.id = body["id"].getStr()
+  result.msg = body["message"].getStr()

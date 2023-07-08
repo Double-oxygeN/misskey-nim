@@ -12,10 +12,22 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-import misskey/clients
-import misskey/models
-import misskey/apis
+import std/json
 
-export clients
-export models
-export apis
+type
+  Feature* {.pure.} = enum
+    registration
+    emailRequiredForSignup
+    hcaptcha
+    recaptcha
+    turnstile
+    objectStorage
+    serviceWorker
+    miauth
+
+
+func toFeatures*(node: JsonNode): set[Feature] =
+  ## Converts a JSON node to a `Feature` set.
+  for featureItem in Feature:
+    if node.hasKey($featureItem) and node[$featureItem].getBool():
+      result.incl(featureItem)

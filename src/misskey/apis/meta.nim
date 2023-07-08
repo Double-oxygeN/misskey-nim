@@ -12,10 +12,17 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-import misskey/clients
-import misskey/models
-import misskey/apis
+import std/[json, httpcore]
+import ../clients
+import ../models/meta as modelMeta
+import errors
 
-export clients
-export models
-export apis
+proc meta*[T](client: MisskeyClient[T]; detail = true): Meta =
+  ## Gets meta information of the instance.
+  let response = client.request("meta", %* { "detail": detail })
+
+  if response.code == Http200:
+    result = response.body.toMeta()
+
+  else:
+    raise newMisskeyResponseError(response.code, response.body)
