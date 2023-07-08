@@ -1,0 +1,1 @@
+getOnlineUsersCount	misskey/apis/getonlineusers.html#getOnlineUsersCount,MisskeyClient[T]	getonlineusers: getOnlineUsersCount[T](client: MisskeyClient[T]): Natural	
