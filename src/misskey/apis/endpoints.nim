@@ -12,8 +12,17 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-from apis/errors import MisskeyResponseError
-import apis/[endpoints, meta, ping]
+import std/[json, httpcore]
+from sequtils import mapIt
+import ../clients
+import errors
 
-export MisskeyResponseError
-export endpoints, meta, ping
+proc endpoints*[T](client: MisskeyClient[T]): seq[string] =
+  ## Get all endpoints of the API.
+  let response = client.request("endpoints", newJObject())
+
+  if response.code == Http200:
+    result = response.body.getElems().mapIt(it.getStr())
+
+  else:
+    raise newMisskeyResponseError(response.code, response.body)
