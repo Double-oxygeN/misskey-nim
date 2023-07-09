@@ -24,5 +24,5 @@ type
 proc newMisskeyResponseError*(code: HttpCode; body: JsonNode): ref MisskeyResponseError =
   new result
   result.code = code
-  result.id = body["id"].getStr()
-  result.msg = body["message"].getStr()
+  result.id = body["error"]["id"].getStr()
+  result.msg = body["error"]["message"].getStr()
