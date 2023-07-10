@@ -1,0 +1,1 @@
+stats	misskey/apis/stats.html#stats,MisskeyClient[T]	stats: stats[T](client: MisskeyClient[T]): Stats	

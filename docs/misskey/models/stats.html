@@ -17,7 +17,7 @@
 <link href='https://fonts.googleapis.com/css?family=Source+Code+Pro:400,500,600' rel='stylesheet' type='text/css'/>
 
 <!-- CSS -->
-<title>src/misskey/models/fetchrssresult</title>
+<title>src/misskey/models/stats</title>
 <link rel="stylesheet" type="text/css" href="../../nimdoc.out.css">
 
 <script type="text/javascript" src="../../dochack.js"></script>
@@ -69,7 +69,7 @@ window.addEventListener('DOMContentLoaded', main);
 <body>
 <div class="document" id="documentId">
   <div class="container">
-    <h1 class="title">src/misskey/models/fetchrssresult</h1>
+    <h1 class="title">src/misskey/models/stats</h1>
     <div class="row">
   <div class="three columns">
   <div class="theme-switch-wrapper">
@@ -107,24 +107,19 @@ window.addEventListener('DOMContentLoaded', main);
 <li>
   <a class="reference reference-toplevel" href="#7" id="57">Types</a>
   <ul class="simple simple-toc-section">
-      <li><a class="reference" href="#FetchRssResult"
-    title="FetchRssResult = ref object
-  title*: string
-  link*: Uri
-  description*: Option[string]
-  language*: Option[string]
-  copyright*: Option[string]
-  lastBuildDate*: Option[string]
-  items*: seq[RssItem]">FetchRssResult</a></li>
+      <li><a class="reference" href="#Stats"
+    title="Stats = tuple[notesCount, originalNotesCount: Natural,
+              usersCount, originalUsersCount: Natural, reactionsCount: Natural,
+              instances: Natural, driveUsageLocal, driveUsageRemote: Natural]">Stats</a></li>
 
   </ul>
 </li>
 <li>
   <a class="reference reference-toplevel" href="#12" id="62">Procs</a>
   <ul class="simple simple-toc-section">
-      <ul class="simple nested-toc-section">toFetchRssResult
-      <li><a class="reference" href="#toFetchRssResult%2CJsonNode"
-    title="toFetchRssResult(node: JsonNode): FetchRssResult">toFetchRssResult(node: JsonNode): FetchRssResult</a></li>
+      <ul class="simple nested-toc-section">toStats
+      <li><a class="reference" href="#toStats%2CJsonNode"
+    title="toStats(node: JsonNode): Stats">toStats(node: JsonNode): Stats</a></li>
 
   </ul>
 
@@ -135,9 +130,9 @@ window.addEventListener('DOMContentLoaded', main);
 
   </div>
   &nbsp;&nbsp;<a
-href="https://github.com/Double-oxygeN/misskey-nim/tree/master/src/misskey/models/fetchrssresult.nim#L1"
+href="https://github.com/Double-oxygeN/misskey-nim/tree/master/src/misskey/models/stats.nim#L1"
 class="link-seesrc" target="_blank">Source</a>
-&nbsp;&nbsp;<a href="https://github.com/Double-oxygeN/misskey-nim/edit/devel/src/misskey/models/fetchrssresult.nim#L1" class="link-seesrc" target="_blank" >Edit</a>
+&nbsp;&nbsp;<a href="https://github.com/Double-oxygeN/misskey-nim/edit/devel/src/misskey/models/stats.nim#L1" class="link-seesrc" target="_blank" >Edit</a>
 
   <div class="nine columns" id="content">
   <div id="tocRoot"></div>
@@ -146,28 +141,22 @@ class="link-seesrc" target="_blank">Source</a>
   <div class="section" id="6">
 <h1><a class="toc-backref" href="#6">Imports</a></h1>
 <dl class="item">
-<a class="reference external" href="fetchrss/rssitems.html">fetchrss/rssitems</a>, <a class="reference external" href="macros/parser.html">macros/parser</a>
+<a class="reference external" href="macros/parser.html">macros/parser</a>
 </dl></div>
 <div class="section" id="7">
 <h1><a class="toc-backref" href="#7">Types</a></h1>
 <dl class="item">
-<div id="FetchRssResult">
-<dt><pre><a href="fetchrssresult.html#FetchRssResult"><span class="Identifier">FetchRssResult</span></a> <span class="Other">=</span> <span class="Keyword">ref</span> <span class="Keyword">object</span>
-  <span class="Identifier">title</span><span class="Operator">*</span><span class="Other">:</span> <span class="Identifier">string</span>
-  <span class="Identifier">link</span><span class="Operator">*</span><span class="Other">:</span> <span class="Identifier">Uri</span>
-  <span class="Identifier">description</span><span class="Operator">*</span><span class="Other">:</span> <span class="Identifier">Option</span><span class="Other">[</span><span class="Identifier">string</span><span class="Other">]</span>
-  <span class="Identifier">language</span><span class="Operator">*</span><span class="Other">:</span> <span class="Identifier">Option</span><span class="Other">[</span><span class="Identifier">string</span><span class="Other">]</span>
-  <span class="Identifier">copyright</span><span class="Operator">*</span><span class="Other">:</span> <span class="Identifier">Option</span><span class="Other">[</span><span class="Identifier">string</span><span class="Other">]</span>
-  <span class="Identifier">lastBuildDate</span><span class="Operator">*</span><span class="Other">:</span> <span class="Identifier">Option</span><span class="Other">[</span><span class="Identifier">string</span><span class="Other">]</span>
-  <span class="Identifier">items</span><span class="Operator">*</span><span class="Other">:</span> <span class="Identifier">seq</span><span class="Other">[</span><a href="fetchrss/rssitems.html#RssItem"><span class="Identifier">RssItem</span></a><span class="Other">]</span>
-</pre></dt>
+<div id="Stats">
+<dt><pre><a href="stats.html#Stats"><span class="Identifier">Stats</span></a> <span class="Other">=</span> <span class="Keyword">tuple</span><span class="Other">[</span><span class="Identifier">notesCount</span><span class="Other">,</span> <span class="Identifier">originalNotesCount</span><span class="Other">:</span> <span class="Identifier">Natural</span><span class="Other">,</span>
+              <span class="Identifier">usersCount</span><span class="Other">,</span> <span class="Identifier">originalUsersCount</span><span class="Other">:</span> <span class="Identifier">Natural</span><span class="Other">,</span> <span class="Identifier">reactionsCount</span><span class="Other">:</span> <span class="Identifier">Natural</span><span class="Other">,</span>
+              <span class="Identifier">instances</span><span class="Other">:</span> <span class="Identifier">Natural</span><span class="Other">,</span> <span class="Identifier">driveUsageLocal</span><span class="Other">,</span> <span class="Identifier">driveUsageRemote</span><span class="Other">:</span> <span class="Identifier">Natural</span><span class="Other">]</span></pre></dt>
 <dd>
 
-The result of a fetchRss call. The API accepts Atom, RSS 1.0, and RSS 2.0 feeds.
+
 &nbsp;&nbsp;<a
-href="https://github.com/Double-oxygeN/misskey-nim/tree/master/src/misskey/models/fetchrssresult.nim#L20"
+href="https://github.com/Double-oxygeN/misskey-nim/tree/master/src/misskey/models/stats.nim#L19"
 class="link-seesrc" target="_blank">Source</a>
-&nbsp;&nbsp;<a href="https://github.com/Double-oxygeN/misskey-nim/edit/devel/src/misskey/models/fetchrssresult.nim#L20" class="link-seesrc" target="_blank" >Edit</a>
+&nbsp;&nbsp;<a href="https://github.com/Double-oxygeN/misskey-nim/edit/devel/src/misskey/models/stats.nim#L19" class="link-seesrc" target="_blank" >Edit</a>
 
 </dd>
 </div>
@@ -176,16 +165,15 @@ class="link-seesrc" target="_blank">Source</a>
 <div class="section" id="12">
 <h1><a class="toc-backref" href="#12">Procs</a></h1>
 <dl class="item">
-<div id="toFetchRssResult,JsonNode">
-<dt><pre><span class="Keyword">proc</span> <a href="#toFetchRssResult%2CJsonNode"><span class="Identifier">toFetchRssResult</span></a><span class="Other">(</span><span class="Identifier">node</span><span class="Other">:</span> <span class="Identifier">JsonNode</span><span class="Other">)</span><span class="Other">:</span> <a href="fetchrssresult.html#FetchRssResult"><span class="Identifier">FetchRssResult</span></a> {.<span><span class="Other pragmadots">...</span></span><span class="pragmawrap"><span class="Identifier">raises</span><span class="Other">:</span> <span class="Other">[</span><span class="Identifier">KeyError</span><span class="Other">]</span><span class="Other">,</span>
-    <span class="Identifier">tags</span><span class="Other">:</span> <span class="Other">[</span><span class="Identifier">TimeEffect</span><span class="Other">]</span></span>.}</pre></dt>
+<div id="toStats,JsonNode">
+<dt><pre><span class="Keyword">func</span> <a href="#toStats%2CJsonNode"><span class="Identifier">toStats</span></a><span class="Other">(</span><span class="Identifier">node</span><span class="Other">:</span> <span class="Identifier">JsonNode</span><span class="Other">)</span><span class="Other">:</span> <a href="stats.html#Stats"><span class="Identifier">Stats</span></a> {.<span><span class="Other pragmadots">...</span></span><span class="pragmawrap"><span class="Identifier">raises</span><span class="Other">:</span> <span class="Other">[</span><span class="Identifier">KeyError</span><span class="Other">]</span><span class="Other">,</span> <span class="Identifier">tags</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span></span>.}</pre></dt>
 <dd>
 
-Converts a JSON node to a <tt class="docutils literal"><span class="pre"><span class="Identifier">FetchRssResult</span></span></tt> object.
+Convert a JSON node to a <tt class="docutils literal"><span class="pre"><span class="Identifier">Stats</span></span></tt> object.
 &nbsp;&nbsp;<a
-href="https://github.com/Double-oxygeN/misskey-nim/tree/master/src/misskey/models/fetchrssresult.nim#L32"
+href="https://github.com/Double-oxygeN/misskey-nim/tree/master/src/misskey/models/stats.nim#L27"
 class="link-seesrc" target="_blank">Source</a>
-&nbsp;&nbsp;<a href="https://github.com/Double-oxygeN/misskey-nim/edit/devel/src/misskey/models/fetchrssresult.nim#L32" class="link-seesrc" target="_blank" >Edit</a>
+&nbsp;&nbsp;<a href="https://github.com/Double-oxygeN/misskey-nim/edit/devel/src/misskey/models/stats.nim#L27" class="link-seesrc" target="_blank" >Edit</a>
 
 </dd>
 </div>

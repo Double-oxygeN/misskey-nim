@@ -70,7 +70,7 @@ window.addEventListener('DOMContentLoaded', main);
 <div class="document" id="documentId">
   <div class="container">
     <h1 class="title">Index</h1>
-    Modules: <a href="misskey/apis/endpoint.html">misskey/apis/endpoint</a>, <a href="misskey/apis/endpoints.html">misskey/apis/endpoints</a>, <a href="misskey/apis/errors.html">misskey/apis/errors</a>, <a href="misskey/apis/fetchrss.html">misskey/apis/fetchrss</a>, <a href="misskey/apis/getonlineusers.html">misskey/apis/getonlineusers</a>, <a href="misskey/apis/invite.html">misskey/apis/invite</a>, <a href="misskey/apis/meta.html">misskey/apis/meta</a>, <a href="misskey/apis/ping.html">misskey/apis/ping</a>, <a href="misskey/clients.html">misskey/clients</a>, <a href="misskey/models/fetchrss/rssitems.html">misskey/models/fetchrss/rssitems</a>, <a href="misskey/models/fetchrssresult.html">misskey/models/fetchrssresult</a>, <a href="misskey/models/macros/parser.html">misskey/models/macros/parser</a>, <a href="misskey/models/macros/parsetables.html">misskey/models/macros/parsetables</a>, <a href="misskey/models/meta.html">misskey/models/meta</a>, <a href="misskey/models/meta/ads.html">misskey/models/meta/ads</a>, <a href="misskey/models/meta/features.html">misskey/models/meta/features</a>, <a href="misskey/models/meta/policies.html">misskey/models/meta/policies</a>, <a href="misskey/models/utils/invitationcodes.html">misskey/models/utils/invitationcodes</a>, <a href="misskey/models/utils/versions.html">misskey/models/utils/versions</a>.<br/><p /><h2>API symbols</h2>
+    Modules: <a href="misskey/apis/endpoint.html">misskey/apis/endpoint</a>, <a href="misskey/apis/endpoints.html">misskey/apis/endpoints</a>, <a href="misskey/apis/errors.html">misskey/apis/errors</a>, <a href="misskey/apis/fetchrss.html">misskey/apis/fetchrss</a>, <a href="misskey/apis/getonlineusers.html">misskey/apis/getonlineusers</a>, <a href="misskey/apis/invite.html">misskey/apis/invite</a>, <a href="misskey/apis/meta.html">misskey/apis/meta</a>, <a href="misskey/apis/ping.html">misskey/apis/ping</a>, <a href="misskey/apis/stats.html">misskey/apis/stats</a>, <a href="misskey/clients.html">misskey/clients</a>, <a href="misskey/models/fetchrss/rssitems.html">misskey/models/fetchrss/rssitems</a>, <a href="misskey/models/fetchrssresult.html">misskey/models/fetchrssresult</a>, <a href="misskey/models/macros/parser.html">misskey/models/macros/parser</a>, <a href="misskey/models/macros/parsetables.html">misskey/models/macros/parsetables</a>, <a href="misskey/models/meta.html">misskey/models/meta</a>, <a href="misskey/models/meta/ads.html">misskey/models/meta/ads</a>, <a href="misskey/models/meta/features.html">misskey/models/meta/features</a>, <a href="misskey/models/meta/policies.html">misskey/models/meta/policies</a>, <a href="misskey/models/stats.html">misskey/models/stats</a>, <a href="misskey/models/utils/invitationcodes.html">misskey/models/utils/invitationcodes</a>, <a href="misskey/models/utils/versions.html">misskey/models/utils/versions</a>.<br/><p /><h2>API symbols</h2>
 <dl><dt><a name="%60%24%60" href="#%60%24%60"><span>`$`:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
           data-doc-search-tag="invitationcodes: `$`(code: InvitationCode): string" href="misskey/models/utils/invitationcodes.html#%24%2CInvitationCode">invitationcodes: `$`(code: InvitationCode): string</a></li>
@@ -289,6 +289,14 @@ window.addEventListener('DOMContentLoaded', main);
                                        prerelease: string]" href="misskey/models/utils/versions.html#split%2CSoftwareVersion">versions: split(version: SoftwareVersion): tuple[major, minor, patch: Natural,
                                        prerelease: string]</a></li>
           </ul></dd>
+<dt><a name="stats" href="#stats"><span>stats:</span></a></dt><dd><ul class="simple">
+<li><a class="reference external"
+          data-doc-search-tag="stats: stats[T](client: MisskeyClient[T]): Stats" href="misskey/apis/stats.html#stats%2CMisskeyClient%5BT%5D">stats: stats[T](client: MisskeyClient[T]): Stats</a></li>
+          </ul></dd>
+<dt><a name="Stats" href="#Stats"><span>Stats:</span></a></dt><dd><ul class="simple">
+<li><a class="reference external"
+          data-doc-search-tag="stats: Stats" href="misskey/models/stats.html#Stats">stats: Stats</a></li>
+          </ul></dd>
 <dt><a name="toAdvertisement" href="#toAdvertisement"><span>toAdvertisement:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
           data-doc-search-tag="ads: toAdvertisement(node: JsonNode): Advertisement" href="misskey/models/meta/ads.html#toAdvertisement%2CJsonNode">ads: toAdvertisement(node: JsonNode): Advertisement</a></li>
@@ -317,6 +325,10 @@ window.addEventListener('DOMContentLoaded', main);
 <li><a class="reference external"
           data-doc-search-tag="rssitems: toRssItem(node: JsonNode): RssItem" href="misskey/models/fetchrss/rssitems.html#toRssItem%2CJsonNode">rssitems: toRssItem(node: JsonNode): RssItem</a></li>
           </ul></dd>
+<dt><a name="toStats" href="#toStats"><span>toStats:</span></a></dt><dd><ul class="simple">
+<li><a class="reference external"
+          data-doc-search-tag="stats: toStats(node: JsonNode): Stats" href="misskey/models/stats.html#toStats%2CJsonNode">stats: toStats(node: JsonNode): Stats</a></li>
+          </ul></dd>
 <dt><a name="version" href="#version"><span>version:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
           data-doc-search-tag="versions: version(major, minor, patch: Natural; prerelease = &quot;&quot;): SoftwareVersion" href="misskey/models/utils/versions.html#version%2CNatural%2CNatural%2CNatural%2Cstring">versions: version(major, minor, patch: Natural; prerelease = &quot;&quot;): SoftwareVersion</a></li>
@@ -326,7 +338,7 @@ window.addEventListener('DOMContentLoaded', main);
       <div class="twelve-columns footer">
         <span class="nim-sprite"></span>
         <br/>
-        <small style="color: var(--hint);">Made with Nim. Generated: 2023-07-10 11:21:52 UTC</small>
+        <small style="color: var(--hint);">Made with Nim. Generated: 2023-07-10 12:54:05 UTC</small>
       </div>
     </div>
   </div>

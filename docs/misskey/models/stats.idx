@@ -1,0 +1,2 @@
+Stats	misskey/models/stats.html#Stats	stats: Stats	
+toStats	misskey/models/stats.html#toStats,JsonNode	stats: toStats(node: JsonNode): Stats	
