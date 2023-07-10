@@ -12,12 +12,17 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-import models/utils/[versions, invitationcodes]
-import models/fetchrssresult, models/fetchrss/rssitems
-import models/meta, models/meta/[ads, features, policies]
-import models/stats
+import std/[json, httpcore]
+import ../clients
+import ../models/stats
+import errors
 
-export versions, invitationcodes
-export fetchrssresult, rssitems
-export meta, ads, features, policies
-export stats
+proc stats*[T](client: MisskeyClient[T]): Stats =
+  ## Gets the instance statistics.
+  let response = client.request("stats", newJObject())
+
+  if response.code == Http200:
+    result = response.body.toStats()
+
+  else:
+    raise newMisskeyResponseError(response.code, response.body)

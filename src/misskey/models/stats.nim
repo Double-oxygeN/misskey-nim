@@ -12,12 +12,17 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-import models/utils/[versions, invitationcodes]
-import models/fetchrssresult, models/fetchrss/rssitems
-import models/meta, models/meta/[ads, features, policies]
-import models/stats
+import std/json
+import macros/parser
 
-export versions, invitationcodes
-export fetchrssresult, rssitems
-export meta, ads, features, policies
-export stats
+type
+  Stats* = tuple
+    notesCount, originalNotesCount: Natural
+    usersCount, originalUsersCount: Natural
+    reactionsCount: Natural
+    instances: Natural
+    driveUsageLocal, driveUsageRemote: Natural
+
+
+func toStats*(node: JsonNode): Stats {.genModel(Stats).} =
+  ## Convert a JSON node to a `Stats` object.
