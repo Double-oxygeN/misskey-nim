@@ -11,12 +11,14 @@ import std/[unittest, json, httpclient, uri]
 
 const
   testMisskeyHost = "https://misskey.example.com"
+  testAccessToken = "testAccessToken"
   testInvitationCode = "ABCD1234"
 
 type MockedHttpClient = ref object
 
 proc postJson(client: MockedHttpClient; uri: Uri; body: JsonNode; headers: openArray[HeaderField]): JsonResponse =
   check uri.path == "/api/invite"
+  check body["i"].getStr() == testAccessToken
   result.code = Http200
   result.headers = @[("Content-Type", "application/json")]
   result.body = %* { "code": testInvitationCode }
@@ -26,8 +28,10 @@ proc postMultipart(client: MockedHttpClient; uri: Uri; multipart: MultipartData;
   discard
 
 
-let
-  client = newMisskeyClient(testMisskeyHost, new MockedHttpClient)
-  invitationCode = client.invite()
+let client = newMisskeyClient(testMisskeyHost, new MockedHttpClient)
+
+client.putAccessToken(testAccessToken)
+
+let invitationCode = client.invite()
 
 check $invitationCode == testInvitationCode
