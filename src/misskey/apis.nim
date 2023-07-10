@@ -13,7 +13,7 @@
 # limitations under the License.
 
 from apis/errors import MisskeyResponseError
-import apis/[endpoint, endpoints, getonlineusers, meta, ping]
+import apis/[endpoint, endpoints, fetchrss, getonlineusers, invite, meta, ping]
 
 export MisskeyResponseError
-export endpoint, endpoints, getonlineusers, meta, ping
+export endpoint, endpoints, fetchrss, getonlineusers, invite, meta, ping
