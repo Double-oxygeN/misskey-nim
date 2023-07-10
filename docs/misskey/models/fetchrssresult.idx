@@ -1,0 +1,2 @@
+FetchRssResult	misskey/models/fetchrssresult.html#FetchRssResult	fetchrssresult: FetchRssResult	
+toFetchRssResult	misskey/models/fetchrssresult.html#toFetchRssResult,JsonNode	fetchrssresult: toFetchRssResult(node: JsonNode): FetchRssResult	

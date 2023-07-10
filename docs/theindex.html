@@ -70,9 +70,11 @@ window.addEventListener('DOMContentLoaded', main);
 <div class="document" id="documentId">
   <div class="container">
     <h1 class="title">Index</h1>
-    Modules: <a href="misskey/apis/endpoint.html">misskey/apis/endpoint</a>, <a href="misskey/apis/endpoints.html">misskey/apis/endpoints</a>, <a href="misskey/apis/errors.html">misskey/apis/errors</a>, <a href="misskey/apis/getonlineusers.html">misskey/apis/getonlineusers</a>, <a href="misskey/apis/meta.html">misskey/apis/meta</a>, <a href="misskey/apis/ping.html">misskey/apis/ping</a>, <a href="misskey/clients.html">misskey/clients</a>, <a href="misskey/models/macros/parser.html">misskey/models/macros/parser</a>, <a href="misskey/models/macros/parsetables.html">misskey/models/macros/parsetables</a>, <a href="misskey/models/meta.html">misskey/models/meta</a>, <a href="misskey/models/meta/ads.html">misskey/models/meta/ads</a>, <a href="misskey/models/meta/features.html">misskey/models/meta/features</a>, <a href="misskey/models/meta/policies.html">misskey/models/meta/policies</a>, <a href="misskey/models/utils/versions.html">misskey/models/utils/versions</a>.<br/><p /><h2>API symbols</h2>
+    Modules: <a href="misskey/apis/endpoint.html">misskey/apis/endpoint</a>, <a href="misskey/apis/endpoints.html">misskey/apis/endpoints</a>, <a href="misskey/apis/errors.html">misskey/apis/errors</a>, <a href="misskey/apis/fetchrss.html">misskey/apis/fetchrss</a>, <a href="misskey/apis/getonlineusers.html">misskey/apis/getonlineusers</a>, <a href="misskey/apis/invite.html">misskey/apis/invite</a>, <a href="misskey/apis/meta.html">misskey/apis/meta</a>, <a href="misskey/apis/ping.html">misskey/apis/ping</a>, <a href="misskey/clients.html">misskey/clients</a>, <a href="misskey/models/fetchrss/rssitems.html">misskey/models/fetchrss/rssitems</a>, <a href="misskey/models/fetchrssresult.html">misskey/models/fetchrssresult</a>, <a href="misskey/models/macros/parser.html">misskey/models/macros/parser</a>, <a href="misskey/models/macros/parsetables.html">misskey/models/macros/parsetables</a>, <a href="misskey/models/meta.html">misskey/models/meta</a>, <a href="misskey/models/meta/ads.html">misskey/models/meta/ads</a>, <a href="misskey/models/meta/features.html">misskey/models/meta/features</a>, <a href="misskey/models/meta/policies.html">misskey/models/meta/policies</a>, <a href="misskey/models/utils/invitationcodes.html">misskey/models/utils/invitationcodes</a>, <a href="misskey/models/utils/versions.html">misskey/models/utils/versions</a>.<br/><p /><h2>API symbols</h2>
 <dl><dt><a name="%60%24%60" href="#%60%24%60"><span>`$`:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
+          data-doc-search-tag="invitationcodes: `$`(code: InvitationCode): string" href="misskey/models/utils/invitationcodes.html#%24%2CInvitationCode">invitationcodes: `$`(code: InvitationCode): string</a></li>
+          <li><a class="reference external"
           data-doc-search-tag="versions: `$`(version: SoftwareVersion): string" href="misskey/models/utils/versions.html#%24%2CSoftwareVersion">versions: `$`(version: SoftwareVersion): string</a></li>
           </ul></dd>
 <dt><a name="%60%26lt%3B%3D%60" href="#%60%26lt%3B%3D%60"><span>`&lt;=`:</span></a></dt><dd><ul class="simple">
@@ -115,6 +117,14 @@ window.addEventListener('DOMContentLoaded', main);
 <li><a class="reference external"
           data-doc-search-tag="features: Feature" href="misskey/models/meta/features.html#Feature">features: Feature</a></li>
           </ul></dd>
+<dt><a name="fetchRss" href="#fetchRss"><span>fetchRss:</span></a></dt><dd><ul class="simple">
+<li><a class="reference external"
+          data-doc-search-tag="fetchrss: fetchRss[T](client: MisskeyClient[T]; url: Uri): FetchRssResult" href="misskey/apis/fetchrss.html#fetchRss%2CMisskeyClient%5BT%5D%2CUri">fetchrss: fetchRss[T](client: MisskeyClient[T]; url: Uri): FetchRssResult</a></li>
+          </ul></dd>
+<dt><a name="FetchRssResult" href="#FetchRssResult"><span>FetchRssResult:</span></a></dt><dd><ul class="simple">
+<li><a class="reference external"
+          data-doc-search-tag="fetchrssresult: FetchRssResult" href="misskey/models/fetchrssresult.html#FetchRssResult">fetchrssresult: FetchRssResult</a></li>
+          </ul></dd>
 <dt><a name="fieldNodeIdent" href="#fieldNodeIdent"><span>fieldNodeIdent:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
           data-doc-search-tag="parsetables: fieldNodeIdent(table: ParseTable): NimNode" href="misskey/models/macros/parsetables.html#fieldNodeIdent%2CParseTable">parsetables: fieldNodeIdent(table: ParseTable): NimNode</a></li>
@@ -142,6 +152,14 @@ window.addEventListener('DOMContentLoaded', main);
 <dt><a name="HeaderField" href="#HeaderField"><span>HeaderField:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
           data-doc-search-tag="clients: HeaderField" href="misskey/clients.html#HeaderField">clients: HeaderField</a></li>
+          </ul></dd>
+<dt><a name="InvitationCode" href="#InvitationCode"><span>InvitationCode:</span></a></dt><dd><ul class="simple">
+<li><a class="reference external"
+          data-doc-search-tag="invitationcodes: InvitationCode" href="misskey/models/utils/invitationcodes.html#InvitationCode">invitationcodes: InvitationCode</a></li>
+          </ul></dd>
+<dt><a name="invite" href="#invite"><span>invite:</span></a></dt><dd><ul class="simple">
+<li><a class="reference external"
+          data-doc-search-tag="invite: invite[T](client: MisskeyClient[T]): InvitationCode" href="misskey/apis/invite.html#invite%2CMisskeyClient%5BT%5D">invite: invite[T](client: MisskeyClient[T]): InvitationCode</a></li>
           </ul></dd>
 <dt><a name="isPreRelease" href="#isPreRelease"><span>isPreRelease:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
@@ -257,6 +275,10 @@ window.addEventListener('DOMContentLoaded', main);
 <li><a class="reference external"
           data-doc-search-tag="endpoint: RequestParam" href="misskey/apis/endpoint.html#RequestParam">endpoint: RequestParam</a></li>
           </ul></dd>
+<dt><a name="RssItem" href="#RssItem"><span>RssItem:</span></a></dt><dd><ul class="simple">
+<li><a class="reference external"
+          data-doc-search-tag="rssitems: RssItem" href="misskey/models/fetchrss/rssitems.html#RssItem">rssitems: RssItem</a></li>
+          </ul></dd>
 <dt><a name="SoftwareVersion" href="#SoftwareVersion"><span>SoftwareVersion:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
           data-doc-search-tag="versions: SoftwareVersion" href="misskey/models/utils/versions.html#SoftwareVersion">versions: SoftwareVersion</a></li>
@@ -275,6 +297,14 @@ window.addEventListener('DOMContentLoaded', main);
 <li><a class="reference external"
           data-doc-search-tag="features: toFeatures(node: JsonNode): set[Feature]" href="misskey/models/meta/features.html#toFeatures%2CJsonNode">features: toFeatures(node: JsonNode): set[Feature]</a></li>
           </ul></dd>
+<dt><a name="toFetchRssResult" href="#toFetchRssResult"><span>toFetchRssResult:</span></a></dt><dd><ul class="simple">
+<li><a class="reference external"
+          data-doc-search-tag="fetchrssresult: toFetchRssResult(node: JsonNode): FetchRssResult" href="misskey/models/fetchrssresult.html#toFetchRssResult%2CJsonNode">fetchrssresult: toFetchRssResult(node: JsonNode): FetchRssResult</a></li>
+          </ul></dd>
+<dt><a name="toInvitationCode" href="#toInvitationCode"><span>toInvitationCode:</span></a></dt><dd><ul class="simple">
+<li><a class="reference external"
+          data-doc-search-tag="invitationcodes: toInvitationCode(code: string): InvitationCode" href="misskey/models/utils/invitationcodes.html#toInvitationCode%2Cstring">invitationcodes: toInvitationCode(code: string): InvitationCode</a></li>
+          </ul></dd>
 <dt><a name="toMeta" href="#toMeta"><span>toMeta:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
           data-doc-search-tag="meta: toMeta(node: JsonNode): Meta" href="misskey/models/meta.html#toMeta%2CJsonNode">meta: toMeta(node: JsonNode): Meta</a></li>
@@ -282,6 +312,10 @@ window.addEventListener('DOMContentLoaded', main);
 <dt><a name="toPolicies" href="#toPolicies"><span>toPolicies:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
           data-doc-search-tag="policies: toPolicies(node: JsonNode): Policies" href="misskey/models/meta/policies.html#toPolicies%2CJsonNode">policies: toPolicies(node: JsonNode): Policies</a></li>
+          </ul></dd>
+<dt><a name="toRssItem" href="#toRssItem"><span>toRssItem:</span></a></dt><dd><ul class="simple">
+<li><a class="reference external"
+          data-doc-search-tag="rssitems: toRssItem(node: JsonNode): RssItem" href="misskey/models/fetchrss/rssitems.html#toRssItem%2CJsonNode">rssitems: toRssItem(node: JsonNode): RssItem</a></li>
           </ul></dd>
 <dt><a name="version" href="#version"><span>version:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
@@ -292,7 +326,7 @@ window.addEventListener('DOMContentLoaded', main);
       <div class="twelve-columns footer">
         <span class="nim-sprite"></span>
         <br/>
-        <small style="color: var(--hint);">Made with Nim. Generated: 2023-07-10 10:26:16 UTC</small>
+        <small style="color: var(--hint);">Made with Nim. Generated: 2023-07-10 11:21:52 UTC</small>
       </div>
     </div>
   </div>

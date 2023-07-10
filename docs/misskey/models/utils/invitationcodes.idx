@@ -1,0 +1,3 @@
+InvitationCode	misskey/models/utils/invitationcodes.html#InvitationCode	invitationcodes: InvitationCode	
+toInvitationCode	misskey/models/utils/invitationcodes.html#toInvitationCode,string	invitationcodes: toInvitationCode(code: string): InvitationCode	
+`$`	misskey/models/utils/invitationcodes.html#$,InvitationCode	invitationcodes: `$`(code: InvitationCode): string	

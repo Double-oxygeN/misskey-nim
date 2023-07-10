@@ -1,0 +1,2 @@
+RssItem	misskey/models/fetchrss/rssitems.html#RssItem	rssitems: RssItem	
+toRssItem	misskey/models/fetchrss/rssitems.html#toRssItem,JsonNode	rssitems: toRssItem(node: JsonNode): RssItem	

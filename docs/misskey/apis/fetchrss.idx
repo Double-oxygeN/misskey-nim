@@ -1,0 +1,1 @@
+fetchRss	misskey/apis/fetchrss.html#fetchRss,MisskeyClient[T],Uri	fetchrss: fetchRss[T](client: MisskeyClient[T]; url: Uri): FetchRssResult	

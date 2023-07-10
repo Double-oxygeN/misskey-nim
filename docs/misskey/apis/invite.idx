@@ -1,0 +1,1 @@
+invite	misskey/apis/invite.html#invite,MisskeyClient[T]	invite: invite[T](client: MisskeyClient[T]): InvitationCode	
