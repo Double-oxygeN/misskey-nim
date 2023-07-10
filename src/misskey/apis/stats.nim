@@ -12,17 +12,17 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-from apis/errors import MisskeyResponseError
-import apis/[
-  endpoint,
-  endpoints,
-  fetchrss,
-  getonlineusers,
-  invite,
-  meta,
-  ping,
-  stats
-]
+import std/[json, httpcore]
+import ../clients
+import ../models/stats
+import errors
 
-export MisskeyResponseError
-export endpoint, endpoints, fetchrss, getonlineusers, invite, meta, ping, stats
+proc stats*[T](client: MisskeyClient[T]): Stats =
+  ## Gets the instance statistics.
+  let response = client.request("stats", newJObject())
+
+  if response.code == Http200:
+    result = response.body.toStats()
+
+  else:
+    raise newMisskeyResponseError(response.code, response.body)
