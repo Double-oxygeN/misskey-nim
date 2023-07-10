@@ -12,17 +12,17 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-from std/httpcore import HttpCode
-import std/json
+import std/[json, httpcore, uri]
+import ../clients
+import ../models/fetchrssresult
+import errors
 
-type
-  MisskeyResponseError* = object of CatchableError
-    code*: HttpCode
-    id*: string
+proc fetchRss*[T](client: MisskeyClient[T]; url: Uri): FetchRssResult =
+  ## Fetch RSS feed.
+  let response = client.request("fetch-rss", %* { "url": $url })
 
+  if response.code == Http200:
+    result = response.body.toFetchRssResult()
 
-proc newMisskeyResponseError*(code: HttpCode; body: JsonNode): ref MisskeyResponseError =
-  new result
-  result.code = code
-  result.id = body["error"]["id"].getStr()
-  result.msg = body["error"]["message"].getStr()
+  else:
+    raise newMisskeyResponseError(response.code, response.body)
