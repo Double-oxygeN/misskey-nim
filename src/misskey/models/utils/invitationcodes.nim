@@ -12,8 +12,18 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-import models/utils/[versions, invitationcodes]
-import models/meta, models/meta/[ads, features, policies]
+## :Author: Double-oxygeN
+##
+## This module provides a `InvitationCode` type for signing up.
 
-export versions, invitationcodes
-export meta, ads, features, policies
+type
+  InvitationCode* = distinct string
+
+
+func toInvitationCode*(code: string): InvitationCode =
+  ## Convert a string to an invitation code with validation.
+  assert code.len == 8
+  result = InvitationCode(code)
+
+
+func `$`*(code: InvitationCode): string = string(code)
