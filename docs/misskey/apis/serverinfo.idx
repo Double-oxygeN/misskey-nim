@@ -1,0 +1,1 @@
+serverInfo	misskey/apis/serverinfo.html#serverInfo,MisskeyClient[T]	serverinfo: serverInfo[T](client: MisskeyClient[T]): ServerInfo	

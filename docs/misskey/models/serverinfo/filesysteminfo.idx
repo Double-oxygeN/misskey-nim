@@ -1,0 +1,2 @@
+FileSystemInfo	misskey/models/serverinfo/filesysteminfo.html#FileSystemInfo	filesysteminfo: FileSystemInfo	
+toFileSystemInfo	misskey/models/serverinfo/filesysteminfo.html#toFileSystemInfo,JsonNode	filesysteminfo: toFileSystemInfo(node: JsonNode): FileSystemInfo	

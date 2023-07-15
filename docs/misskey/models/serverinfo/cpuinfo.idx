@@ -1,0 +1,2 @@
+CpuInfo	misskey/models/serverinfo/cpuinfo.html#CpuInfo	cpuinfo: CpuInfo	
+toCpuInfo	misskey/models/serverinfo/cpuinfo.html#toCpuInfo,JsonNode	cpuinfo: toCpuInfo(node: JsonNode): CpuInfo	

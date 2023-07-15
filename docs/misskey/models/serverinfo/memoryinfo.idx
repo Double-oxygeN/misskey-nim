@@ -1,0 +1,2 @@
+MemoryInfo	misskey/models/serverinfo/memoryinfo.html#MemoryInfo	memoryinfo: MemoryInfo	
+toMemoryInfo	misskey/models/serverinfo/memoryinfo.html#toMemoryInfo,JsonNode	memoryinfo: toMemoryInfo(node: JsonNode): MemoryInfo	

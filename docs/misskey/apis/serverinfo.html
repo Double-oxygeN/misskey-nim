@@ -17,10 +17,10 @@
 <link href='https://fonts.googleapis.com/css?family=Source+Code+Pro:400,500,600' rel='stylesheet' type='text/css'/>
 
 <!-- CSS -->
-<title>src/misskey/models/macros/parser</title>
-<link rel="stylesheet" type="text/css" href="../../../nimdoc.out.css">
+<title>src/misskey/apis/serverinfo</title>
+<link rel="stylesheet" type="text/css" href="../../nimdoc.out.css">
 
-<script type="text/javascript" src="../../../dochack.js"></script>
+<script type="text/javascript" src="../../dochack.js"></script>
 
 <script type="text/javascript">
 function main() {
@@ -69,7 +69,7 @@ window.addEventListener('DOMContentLoaded', main);
 <body>
 <div class="document" id="documentId">
   <div class="container">
-    <h1 class="title">src/misskey/models/macros/parser</h1>
+    <h1 class="title">src/misskey/apis/serverinfo</h1>
     <div class="row">
   <div class="three columns">
   <div class="theme-switch-wrapper">
@@ -82,7 +82,7 @@ window.addEventListener('DOMContentLoaded', main);
   <div id="global-links">
     <ul class="simple">
     <li>
-      <a href="../../../theindex.html">Index</a>
+      <a href="../../theindex.html">Index</a>
     </li>
     </ul>
   </div>
@@ -105,11 +105,11 @@ window.addEventListener('DOMContentLoaded', main);
   </ul>
 </li>
 <li>
-  <a class="reference reference-toplevel" href="#17" id="67">Macros</a>
+  <a class="reference reference-toplevel" href="#12" id="62">Procs</a>
   <ul class="simple simple-toc-section">
-      <ul class="simple nested-toc-section">genModel
-      <li><a class="reference" href="#genModel.m%2Ctypedesc%2Cuntyped"
-    title="genModel(modelType: typedesc; procDecl: untyped): untyped">genModel(modelType: typedesc; procDecl: untyped): untyped</a></li>
+      <ul class="simple nested-toc-section">serverInfo
+      <li><a class="reference" href="#serverInfo%2CMisskeyClient%5BT%5D"
+    title="serverInfo[T](client: MisskeyClient[T]): ServerInfo">serverInfo[T](client: MisskeyClient[T]): ServerInfo</a></li>
 
   </ul>
 
@@ -120,9 +120,9 @@ window.addEventListener('DOMContentLoaded', main);
 
   </div>
   &nbsp;&nbsp;<a
-href="https://github.com/Double-oxygeN/misskey-nim/tree/master/src/misskey/models/macros/parser.nim#L1"
+href="https://github.com/Double-oxygeN/misskey-nim/tree/master/src/misskey/apis/serverinfo.nim#L1"
 class="link-seesrc" target="_blank">Source</a>
-&nbsp;&nbsp;<a href="https://github.com/Double-oxygeN/misskey-nim/edit/devel/src/misskey/models/macros/parser.nim#L1" class="link-seesrc" target="_blank" >Edit</a>
+&nbsp;&nbsp;<a href="https://github.com/Double-oxygeN/misskey-nim/edit/devel/src/misskey/apis/serverinfo.nim#L1" class="link-seesrc" target="_blank" >Edit</a>
 
   <div class="nine columns" id="content">
   <div id="tocRoot"></div>
@@ -131,20 +131,20 @@ class="link-seesrc" target="_blank">Source</a>
   <div class="section" id="6">
 <h1><a class="toc-backref" href="#6">Imports</a></h1>
 <dl class="item">
-<a class="reference external" href="parsetables.html">parsetables</a>
+<a class="reference external" href="../clients.html">../clients</a>, <a class="reference external" href="../models/serverinfo.html">../models/serverinfo</a>, <a class="reference external" href="errors.html">errors</a>
 </dl></div>
-<div class="section" id="17">
-<h1><a class="toc-backref" href="#17">Macros</a></h1>
+<div class="section" id="12">
+<h1><a class="toc-backref" href="#12">Procs</a></h1>
 <dl class="item">
-<div id="genModel.m,typedesc,untyped">
-<dt><pre><span class="Keyword">macro</span> <a href="#genModel.m%2Ctypedesc%2Cuntyped"><span class="Identifier">genModel</span></a><span class="Other">(</span><span class="Identifier">modelType</span><span class="Other">:</span> <span class="Identifier">typedesc</span><span class="Other">;</span> <span class="Identifier">procDecl</span><span class="Other">:</span> <span class="Identifier">untyped</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">untyped</span></pre></dt>
+<div id="serverInfo,MisskeyClient[T]">
+<dt><pre><span class="Keyword">proc</span> <a href="#serverInfo%2CMisskeyClient%5BT%5D"><span class="Identifier">serverInfo</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">(</span><span class="Identifier">client</span><span class="Other">:</span> <a href="../clients.html#MisskeyClient"><span class="Identifier">MisskeyClient</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">)</span><span class="Other">:</span> <a href="../models/serverinfo.html#ServerInfo"><span class="Identifier">ServerInfo</span></a></pre></dt>
 <dd>
 
-
+Gets the server information.
 &nbsp;&nbsp;<a
-href="https://github.com/Double-oxygeN/misskey-nim/tree/master/src/misskey/models/macros/parser.nim#L90"
+href="https://github.com/Double-oxygeN/misskey-nim/tree/master/src/misskey/apis/serverinfo.nim#L20"
 class="link-seesrc" target="_blank">Source</a>
-&nbsp;&nbsp;<a href="https://github.com/Double-oxygeN/misskey-nim/edit/devel/src/misskey/models/macros/parser.nim#L90" class="link-seesrc" target="_blank" >Edit</a>
+&nbsp;&nbsp;<a href="https://github.com/Double-oxygeN/misskey-nim/edit/devel/src/misskey/apis/serverinfo.nim#L20" class="link-seesrc" target="_blank" >Edit</a>
 
 </dd>
 </div>

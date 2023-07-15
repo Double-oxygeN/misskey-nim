@@ -1,0 +1,2 @@
+ServerInfo	misskey/models/serverinfo.html#ServerInfo	serverinfo: ServerInfo	
+toServerInfo	misskey/models/serverinfo.html#toServerInfo,JsonNode	serverinfo: toServerInfo(node: JsonNode): ServerInfo	
