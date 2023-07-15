@@ -12,31 +12,17 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-from apis/errors import MisskeyResponseError
-import apis/[
-  emoji,
-  emojis,
-  endpoint,
-  endpoints,
-  fetchrss,
-  getonlineusers,
-  invite,
-  meta,
-  ping,
-  serverinfo,
-  stats
-]
+import std/[json, httpcore]
+import ../clients
+import ../models/emojis
+import errors
 
-export MisskeyResponseError
-export
-  emoji,
-  emojis,
-  endpoint,
-  endpoints,
-  fetchrss,
-  getonlineusers,
-  invite,
-  meta,
-  ping,
-  serverinfo,
-  stats
+proc getEmoji*[T](client: MisskeyClient[T]; emojiName: string): EmojiDetailed =
+  ## Gets a custom emoji.
+  let response = client.request("emoji", %* { "name": emojiName })
+
+  if response.code == Http200:
+    result = response.body.toEmojiDetailed()
+
+  else:
+    raise newMisskeyResponseError(response.code, response.body)
