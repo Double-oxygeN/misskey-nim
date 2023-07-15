@@ -1,0 +1,1 @@
+getEmoji	misskey/apis/emoji.html#getEmoji,MisskeyClient[T],string	emoji: getEmoji[T](client: MisskeyClient[T]; emojiName: string): EmojiDetailed	
