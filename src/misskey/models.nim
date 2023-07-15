@@ -13,12 +13,14 @@
 # limitations under the License.
 
 import models/utils/[versions, invitationcodes]
+import models/emojis
 import models/fetchrssresult, models/fetchrss/rssitems
 import models/meta, models/meta/[ads, features, policies]
 import models/serverinfo, models/serverinfo/[cpuinfo, filesysteminfo, memoryinfo]
 import models/stats
 
 export versions, invitationcodes
+export emojis
 export fetchrssresult, rssitems
 export meta, ads, features, policies
 export serverinfo, cpuinfo, filesysteminfo, memoryinfo
