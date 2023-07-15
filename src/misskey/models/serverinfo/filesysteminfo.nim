@@ -12,27 +12,13 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-from apis/errors import MisskeyResponseError
-import apis/[
-  endpoint,
-  endpoints,
-  fetchrss,
-  getonlineusers,
-  invite,
-  meta,
-  ping,
-  serverinfo,
-  stats
-]
+import std/json
+import ../macros/parser
 
-export MisskeyResponseError
-export
-  endpoint,
-  endpoints,
-  fetchrss,
-  getonlineusers,
-  invite,
-  meta,
-  ping,
-  serverinfo,
-  stats
+type
+  FileSystemInfo* = tuple
+    total, used: Natural
+
+
+func toFileSystemInfo*(node: JsonNode): FileSystemInfo {.genModel(FileSystemInfo).} =
+  ## Converts a JSON node to a `FileSystemInfo` object.

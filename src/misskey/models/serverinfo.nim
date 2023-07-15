@@ -12,27 +12,23 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-from apis/errors import MisskeyResponseError
-import apis/[
-  endpoint,
-  endpoints,
-  fetchrss,
-  getonlineusers,
-  invite,
-  meta,
-  ping,
-  serverinfo,
-  stats
-]
+import std/json
+import serverinfo/[cpuinfo, filesysteminfo, memoryinfo]
+import macros/parser
 
-export MisskeyResponseError
-export
-  endpoint,
-  endpoints,
-  fetchrss,
-  getonlineusers,
-  invite,
-  meta,
-  ping,
-  serverinfo,
-  stats
+type
+  ServerInfo* = ref object
+    machine*: string
+    cpu*: CpuInfo
+    mem*: MemoryInfo
+    fs*: FileSystemInfo
+
+
+func toServerInfo*(node: JsonNode): ServerInfo {.genModel(ServerInfo).} =
+  ## Converts a JSON node to a `ServerInfo` object.
+  new result
+
+  parseTable(fieldNode):
+    CpuInfo: fieldNode.toCpuInfo()
+    MemoryInfo: fieldNode.toMemoryInfo()
+    FileSystemInfo: fieldNode.toFileSystemInfo()

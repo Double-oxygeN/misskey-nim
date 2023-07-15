@@ -12,27 +12,14 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-from apis/errors import MisskeyResponseError
-import apis/[
-  endpoint,
-  endpoints,
-  fetchrss,
-  getonlineusers,
-  invite,
-  meta,
-  ping,
-  serverinfo,
-  stats
-]
+import std/json
+import ../macros/parser
 
-export MisskeyResponseError
-export
-  endpoint,
-  endpoints,
-  fetchrss,
-  getonlineusers,
-  invite,
-  meta,
-  ping,
-  serverinfo,
-  stats
+type
+  CpuInfo* = tuple
+    model: string
+    cores: Positive
+
+
+func toCpuInfo*(node: JsonNode): CpuInfo {.genModel(CpuInfo).} =
+  ## Convert a JSON node to a `CpuInfo` object.

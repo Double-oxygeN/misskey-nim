@@ -12,27 +12,13 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-from apis/errors import MisskeyResponseError
-import apis/[
-  endpoint,
-  endpoints,
-  fetchrss,
-  getonlineusers,
-  invite,
-  meta,
-  ping,
-  serverinfo,
-  stats
-]
+import std/json
+import ../macros/parser
 
-export MisskeyResponseError
-export
-  endpoint,
-  endpoints,
-  fetchrss,
-  getonlineusers,
-  invite,
-  meta,
-  ping,
-  serverinfo,
-  stats
+type
+  MemoryInfo* = tuple
+    total: Natural
+
+
+func toMemoryInfo*(node: JsonNode): MemoryInfo {.genModel(MemoryInfo).} =
+  ## Converts a JSON node to a `MemoryInfo` object.

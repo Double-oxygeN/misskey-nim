@@ -15,9 +15,11 @@
 import models/utils/[versions, invitationcodes]
 import models/fetchrssresult, models/fetchrss/rssitems
 import models/meta, models/meta/[ads, features, policies]
+import models/serverinfo, models/serverinfo/[cpuinfo, filesysteminfo, memoryinfo]
 import models/stats
 
 export versions, invitationcodes
 export fetchrssresult, rssitems
 export meta, ads, features, policies
+export serverinfo, cpuinfo, filesysteminfo, memoryinfo
 export stats
