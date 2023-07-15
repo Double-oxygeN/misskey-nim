@@ -87,13 +87,27 @@ proc exprParseFromJson(typeNode, jsonNodeExpr: NimNode; parseTable: ParseTable):
       warning("Unsupported type.", typeNode)
 
 
-iterator fields(modelImpl: NimNode): tuple[fieldNameIdent, typeNode: NimNode] =
-  let fieldDefs = if modelImpl.kind == nnkObjectTy: modelImpl[2] else: modelImpl
+iterator impls(modelImpl: NimNode): NimNode =
+  var cursor = modelImpl
+  if modelImpl.kind == nnkObjectTy:
+    yield cursor
 
-  for fieldDef in fieldDefs:
-    for field in fieldDef[0..^3]:
-      let fieldNameIdent = if field.kind == nnkPostfix: ident($field[1]) else: ident($field)
-      yield (fieldNameIdent: fieldNameIdent, typeNode: fieldDef[^2])
+    while cursor[1].kind != nnkEmpty:
+      cursor = cursor[1][0].getObjImpl()
+      yield cursor
+
+  else:
+    yield cursor
+
+
+iterator fields(modelImpl: NimNode): tuple[fieldNameIdent, typeNode: NimNode] =
+  for impl in impls(modelImpl):
+    let fieldDefs = if impl.kind == nnkObjectTy: impl[2] else: impl
+
+    for fieldDef in fieldDefs:
+      for field in fieldDef[0..^3]:
+        let fieldNameIdent = if field.kind == nnkPostfix: ident($field[1]) else: ident($field)
+        yield (fieldNameIdent: fieldNameIdent, typeNode: fieldDef[^2])
 
 
 macro genModel*(modelType: typedesc; procDecl: untyped): untyped =
