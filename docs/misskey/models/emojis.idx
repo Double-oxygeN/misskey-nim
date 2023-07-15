@@ -1,0 +1,4 @@
+EmojiSimple	misskey/models/emojis.html#EmojiSimple	emojis: EmojiSimple	
+EmojiDetailed	misskey/models/emojis.html#EmojiDetailed	emojis: EmojiDetailed	
+toEmojiSimple	misskey/models/emojis.html#toEmojiSimple,JsonNode	emojis: toEmojiSimple(node: JsonNode): EmojiSimple	
+toEmojiDetailed	misskey/models/emojis.html#toEmojiDetailed,JsonNode	emojis: toEmojiDetailed(node: JsonNode): EmojiDetailed	

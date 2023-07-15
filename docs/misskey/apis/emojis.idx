@@ -1,0 +1,1 @@
+emojis	misskey/apis/emojis.html#emojis,MisskeyClient[T]	emojis: emojis[T](client: MisskeyClient[T]): seq[EmojiSimple]	

@@ -17,7 +17,7 @@
 <link href='https://fonts.googleapis.com/css?family=Source+Code+Pro:400,500,600' rel='stylesheet' type='text/css'/>
 
 <!-- CSS -->
-<title>src/misskey/apis/endpoint</title>
+<title>src/misskey/models/emojis</title>
 <link rel="stylesheet" type="text/css" href="../../nimdoc.out.css">
 
 <script type="text/javascript" src="../../dochack.js"></script>
@@ -69,7 +69,7 @@ window.addEventListener('DOMContentLoaded', main);
 <body>
 <div class="document" id="documentId">
   <div class="container">
-    <h1 class="title">src/misskey/apis/endpoint</h1>
+    <h1 class="title">src/misskey/models/emojis</h1>
     <div class="row">
   <div class="three columns">
   <div class="theme-switch-wrapper">
@@ -107,22 +107,34 @@ window.addEventListener('DOMContentLoaded', main);
 <li>
   <a class="reference reference-toplevel" href="#7" id="57">Types</a>
   <ul class="simple simple-toc-section">
-      <li><a class="reference" href="#RequestParam"
-    title="RequestParam = tuple[name, `type`: string]">RequestParam</a></li>
+      <li><a class="reference" href="#EmojiDetailed"
+    title="EmojiDetailed = ref object of EmojiSimple
+  id*: string
+  host*: Option[string]
+  license*: Option[string]
+  isSensitive*: bool
+  localOnly*: bool
+  roleIdsThatCanBeUsedThisEmojiAsReaction*: seq[string]">EmojiDetailed</a></li>
+  <li><a class="reference" href="#EmojiSimple"
+    title="EmojiSimple = ref object of RootObj
+  aliases*: seq[string]
+  name*: string
+  category*: string
+  url*: Uri">EmojiSimple</a></li>
 
   </ul>
 </li>
 <li>
   <a class="reference reference-toplevel" href="#12" id="62">Procs</a>
   <ul class="simple simple-toc-section">
-      <ul class="simple nested-toc-section">availableParams
-      <li><a class="reference" href="#availableParams%2CMisskeyClient%5BT%5D%2Cstring"
-    title="availableParams[T](client: MisskeyClient[T]; path: string): seq[RequestParam]">availableParams[T](client: MisskeyClient[T]; path: string): seq[RequestParam]</a></li>
+      <ul class="simple nested-toc-section">toEmojiDetailed
+      <li><a class="reference" href="#toEmojiDetailed%2CJsonNode"
+    title="toEmojiDetailed(node: JsonNode): EmojiDetailed">toEmojiDetailed(node: JsonNode): EmojiDetailed</a></li>
 
   </ul>
-  <ul class="simple nested-toc-section">hasEndpoint
-      <li><a class="reference" href="#hasEndpoint%2CMisskeyClient%5BT%5D%2Cstring"
-    title="hasEndpoint[T](client: MisskeyClient[T]; path: string): bool">hasEndpoint[T](client: MisskeyClient[T]; path: string): bool</a></li>
+  <ul class="simple nested-toc-section">toEmojiSimple
+      <li><a class="reference" href="#toEmojiSimple%2CJsonNode"
+    title="toEmojiSimple(node: JsonNode): EmojiSimple">toEmojiSimple(node: JsonNode): EmojiSimple</a></li>
 
   </ul>
 
@@ -133,9 +145,9 @@ window.addEventListener('DOMContentLoaded', main);
 
   </div>
   &nbsp;&nbsp;<a
-href="https://github.com/Double-oxygeN/misskey-nim/tree/master/src/misskey/apis/endpoint.nim#L1"
+href="https://github.com/Double-oxygeN/misskey-nim/tree/master/src/misskey/models/emojis.nim#L1"
 class="link-seesrc" target="_blank">Source</a>
-&nbsp;&nbsp;<a href="https://github.com/Double-oxygeN/misskey-nim/edit/devel/src/misskey/apis/endpoint.nim#L1" class="link-seesrc" target="_blank" >Edit</a>
+&nbsp;&nbsp;<a href="https://github.com/Double-oxygeN/misskey-nim/edit/devel/src/misskey/models/emojis.nim#L1" class="link-seesrc" target="_blank" >Edit</a>
 
   <div class="nine columns" id="content">
   <div id="tocRoot"></div>
@@ -144,20 +156,44 @@ class="link-seesrc" target="_blank">Source</a>
   <div class="section" id="6">
 <h1><a class="toc-backref" href="#6">Imports</a></h1>
 <dl class="item">
-<a class="reference external" href="../clients.html">../clients</a>, <a class="reference external" href="errors.html">errors</a>
+<a class="reference external" href="macros/parser.html">macros/parser</a>
 </dl></div>
 <div class="section" id="7">
 <h1><a class="toc-backref" href="#7">Types</a></h1>
 <dl class="item">
-<div id="RequestParam">
-<dt><pre><a href="endpoint.html#RequestParam"><span class="Identifier">RequestParam</span></a> <span class="Other">=</span> <span class="Keyword">tuple</span><span class="Other">[</span><span class="Identifier">name</span><span class="Other">,</span> <span class="Other">`</span><span class="Keyword">type</span><span class="Other">`</span><span class="Other">:</span> <span class="Identifier">string</span><span class="Other">]</span></pre></dt>
+<div id="EmojiDetailed">
+<dt><pre><a href="emojis.html#EmojiDetailed"><span class="Identifier">EmojiDetailed</span></a> <span class="Other">=</span> <span class="Keyword">ref</span> <span class="Keyword">object</span> <span class="Keyword">of</span> <a href="emojis.html#EmojiSimple"><span class="Identifier">EmojiSimple</span></a>
+  <span class="Identifier">id</span><span class="Operator">*</span><span class="Other">:</span> <span class="Identifier">string</span>
+  <span class="Identifier">host</span><span class="Operator">*</span><span class="Other">:</span> <span class="Identifier">Option</span><span class="Other">[</span><span class="Identifier">string</span><span class="Other">]</span>
+  <span class="Identifier">license</span><span class="Operator">*</span><span class="Other">:</span> <span class="Identifier">Option</span><span class="Other">[</span><span class="Identifier">string</span><span class="Other">]</span>
+  <span class="Identifier">isSensitive</span><span class="Operator">*</span><span class="Other">:</span> <span class="Identifier">bool</span>
+  <span class="Identifier">localOnly</span><span class="Operator">*</span><span class="Other">:</span> <span class="Identifier">bool</span>
+  <span class="Identifier">roleIdsThatCanBeUsedThisEmojiAsReaction</span><span class="Operator">*</span><span class="Other">:</span> <span class="Identifier">seq</span><span class="Other">[</span><span class="Identifier">string</span><span class="Other">]</span>
+</pre></dt>
 <dd>
 
 
 &nbsp;&nbsp;<a
-href="https://github.com/Double-oxygeN/misskey-nim/tree/master/src/misskey/apis/endpoint.nim#L20"
+href="https://github.com/Double-oxygeN/misskey-nim/tree/master/src/misskey/models/emojis.nim#L25"
 class="link-seesrc" target="_blank">Source</a>
-&nbsp;&nbsp;<a href="https://github.com/Double-oxygeN/misskey-nim/edit/devel/src/misskey/apis/endpoint.nim#L20" class="link-seesrc" target="_blank" >Edit</a>
+&nbsp;&nbsp;<a href="https://github.com/Double-oxygeN/misskey-nim/edit/devel/src/misskey/models/emojis.nim#L25" class="link-seesrc" target="_blank" >Edit</a>
+
+</dd>
+</div>
+<div id="EmojiSimple">
+<dt><pre><a href="emojis.html#EmojiSimple"><span class="Identifier">EmojiSimple</span></a> <span class="Other">=</span> <span class="Keyword">ref</span> <span class="Keyword">object</span> <span class="Keyword">of</span> <span class="Identifier">RootObj</span>
+  <span class="Identifier">aliases</span><span class="Operator">*</span><span class="Other">:</span> <span class="Identifier">seq</span><span class="Other">[</span><span class="Identifier">string</span><span class="Other">]</span>
+  <span class="Identifier">name</span><span class="Operator">*</span><span class="Other">:</span> <span class="Identifier">string</span>
+  <span class="Identifier">category</span><span class="Operator">*</span><span class="Other">:</span> <span class="Identifier">string</span>
+  <span class="Identifier">url</span><span class="Operator">*</span><span class="Other">:</span> <span class="Identifier">Uri</span>
+</pre></dt>
+<dd>
+
+
+&nbsp;&nbsp;<a
+href="https://github.com/Double-oxygeN/misskey-nim/tree/master/src/misskey/models/emojis.nim#L19"
+class="link-seesrc" target="_blank">Source</a>
+&nbsp;&nbsp;<a href="https://github.com/Double-oxygeN/misskey-nim/edit/devel/src/misskey/models/emojis.nim#L19" class="link-seesrc" target="_blank" >Edit</a>
 
 </dd>
 </div>
@@ -166,28 +202,28 @@ class="link-seesrc" target="_blank">Source</a>
 <div class="section" id="12">
 <h1><a class="toc-backref" href="#12">Procs</a></h1>
 <dl class="item">
-<div id="availableParams,MisskeyClient[T],string">
-<dt><pre><span class="Keyword">proc</span> <a href="#availableParams%2CMisskeyClient%5BT%5D%2Cstring"><span class="Identifier">availableParams</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">(</span><span class="Identifier">client</span><span class="Other">:</span> <a href="../clients.html#MisskeyClient"><span class="Identifier">MisskeyClient</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">;</span> <span class="Identifier">path</span><span class="Other">:</span> <span class="Identifier">string</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">seq</span><span class="Other">[</span>
-    <a href="endpoint.html#RequestParam"><span class="Identifier">RequestParam</span></a><span class="Other">]</span></pre></dt>
+<div id="toEmojiDetailed,JsonNode">
+<dt><pre><span class="Keyword">func</span> <a href="#toEmojiDetailed%2CJsonNode"><span class="Identifier">toEmojiDetailed</span></a><span class="Other">(</span><span class="Identifier">node</span><span class="Other">:</span> <span class="Identifier">JsonNode</span><span class="Other">)</span><span class="Other">:</span> <a href="emojis.html#EmojiDetailed"><span class="Identifier">EmojiDetailed</span></a> {.<span><span class="Other pragmadots">...</span></span><span class="pragmawrap"><span class="Identifier">raises</span><span class="Other">:</span> <span class="Other">[</span><span class="Identifier">KeyError</span><span class="Other">]</span><span class="Other">,</span>
+    <span class="Identifier">tags</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span></span>.}</pre></dt>
 <dd>
 
-Returns the available parameters of the endpoint. If the endpoint does not exist, an empty sequence is returned.
+Converts a JSON node to an <tt class="docutils literal"><span class="pre"><span class="Identifier">EmojiDetailed</span></span></tt> object.
 &nbsp;&nbsp;<a
-href="https://github.com/Double-oxygeN/misskey-nim/tree/master/src/misskey/apis/endpoint.nim#L39"
+href="https://github.com/Double-oxygeN/misskey-nim/tree/master/src/misskey/models/emojis.nim#L42"
 class="link-seesrc" target="_blank">Source</a>
-&nbsp;&nbsp;<a href="https://github.com/Double-oxygeN/misskey-nim/edit/devel/src/misskey/apis/endpoint.nim#L39" class="link-seesrc" target="_blank" >Edit</a>
+&nbsp;&nbsp;<a href="https://github.com/Double-oxygeN/misskey-nim/edit/devel/src/misskey/models/emojis.nim#L42" class="link-seesrc" target="_blank" >Edit</a>
 
 </dd>
 </div>
-<div id="hasEndpoint,MisskeyClient[T],string">
-<dt><pre><span class="Keyword">proc</span> <a href="#hasEndpoint%2CMisskeyClient%5BT%5D%2Cstring"><span class="Identifier">hasEndpoint</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">(</span><span class="Identifier">client</span><span class="Other">:</span> <a href="../clients.html#MisskeyClient"><span class="Identifier">MisskeyClient</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">;</span> <span class="Identifier">path</span><span class="Other">:</span> <span class="Identifier">string</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">bool</span></pre></dt>
+<div id="toEmojiSimple,JsonNode">
+<dt><pre><span class="Keyword">func</span> <a href="#toEmojiSimple%2CJsonNode"><span class="Identifier">toEmojiSimple</span></a><span class="Other">(</span><span class="Identifier">node</span><span class="Other">:</span> <span class="Identifier">JsonNode</span><span class="Other">)</span><span class="Other">:</span> <a href="emojis.html#EmojiSimple"><span class="Identifier">EmojiSimple</span></a> {.<span><span class="Other pragmadots">...</span></span><span class="pragmawrap"><span class="Identifier">raises</span><span class="Other">:</span> <span class="Other">[</span><span class="Identifier">KeyError</span><span class="Other">]</span><span class="Other">,</span> <span class="Identifier">tags</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span></span>.}</pre></dt>
 <dd>
 
-Checks if the client has the endpoint.
+Converts a JSON node to an <tt class="docutils literal"><span class="pre"><span class="Identifier">EmojiSimple</span></span></tt> object.
 &nbsp;&nbsp;<a
-href="https://github.com/Double-oxygeN/misskey-nim/tree/master/src/misskey/apis/endpoint.nim#L24"
+href="https://github.com/Double-oxygeN/misskey-nim/tree/master/src/misskey/models/emojis.nim#L34"
 class="link-seesrc" target="_blank">Source</a>
-&nbsp;&nbsp;<a href="https://github.com/Double-oxygeN/misskey-nim/edit/devel/src/misskey/apis/endpoint.nim#L24" class="link-seesrc" target="_blank" >Edit</a>
+&nbsp;&nbsp;<a href="https://github.com/Double-oxygeN/misskey-nim/edit/devel/src/misskey/models/emojis.nim#L34" class="link-seesrc" target="_blank" >Edit</a>
 
 </dd>
 </div>
