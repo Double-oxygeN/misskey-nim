@@ -12,29 +12,18 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-from apis/errors import MisskeyResponseError
-import apis/[
-  emojis,
-  endpoint,
-  endpoints,
-  fetchrss,
-  getonlineusers,
-  invite,
-  meta,
-  ping,
-  serverinfo,
-  stats
-]
+import std/[json, httpcore]
+from std/sequtils import mapIt
+import ../clients
+import ../models/emojis
+import errors
 
-export MisskeyResponseError
-export
-  emojis,
-  endpoint,
-  endpoints,
-  fetchrss,
-  getonlineusers,
-  invite,
-  meta,
-  ping,
-  serverinfo,
-  stats
+proc emojis*[T](client: MisskeyClient[T]): seq[EmojiSimple] =
+  ## Gets local custom emojis.
+  let response = client.request("emojis", newJObject())
+
+  if response.code == Http200:
+    result = response.body["emojis"].getElems().mapIt(it.toEmojiSimple())
+
+  else:
+    raise newMisskeyResponseError(response.code, response.body)

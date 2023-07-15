@@ -87,6 +87,29 @@ proc exprParseFromJson(typeNode, jsonNodeExpr: NimNode; parseTable: ParseTable):
       warning("Unsupported type.", typeNode)
 
 
+iterator impls(modelImpl: NimNode): NimNode =
+  var cursor = modelImpl
+  if modelImpl.kind == nnkObjectTy:
+    yield cursor
+
+    while cursor[1].kind != nnkEmpty:
+      cursor = cursor[1][0].getObjImpl()
+      yield cursor
+
+  else:
+    yield cursor
+
+
+iterator fields(modelImpl: NimNode): tuple[fieldNameIdent, typeNode: NimNode] =
+  for impl in impls(modelImpl):
+    let fieldDefs = if impl.kind == nnkObjectTy: impl[2] else: impl
+
+    for fieldDef in fieldDefs:
+      for field in fieldDef[0..^3]:
+        let fieldNameIdent = if field.kind == nnkPostfix: ident($field[1]) else: ident($field)
+        yield (fieldNameIdent: fieldNameIdent, typeNode: fieldDef[^2])
+
+
 macro genModel*(modelType: typedesc; procDecl: untyped): untyped =
   # Validate the procedure.
   procDecl.expectKind({nnkProcDef, nnkFuncDef})
@@ -123,16 +146,12 @@ macro genModel*(modelType: typedesc; procDecl: untyped): untyped =
       newEmptyParseTable(modelType.strVal)
 
   # Append JSON parsing code.
-  let fieldDefs = if modelImpl.kind == nnkObjectTy: modelImpl[2] else: modelImpl
+  for fieldNameIdent, typeNode in fields(modelImpl):
+    let
+      fieldNameStr = ($fieldNameIdent).newStrLitNode()
+      jsonNodeExpr = quote do: `jsonNodeArgIdent`[`fieldNameStr`]
+      parseFromJsonExpr = exprParseFromJson(typeNode, jsonNodeExpr, parseTable)
 
-  for fieldDef in fieldDefs:
-    for field in fieldDef[0..^3]:
-      let
-        fieldNameIdent = if field.kind == nnkPostfix: ident($field[1]) else: ident($field)
-        fieldNameStr = ($fieldNameIdent).newStrLitNode()
-        jsonNodeExpr = quote do: `jsonNodeArgIdent`[`fieldNameStr`]
-        parseFromJsonExpr = exprParseFromJson(fieldDef[^2], jsonNodeExpr, parseTable)
-
-      result[6].add quote do:
-        if `jsonNodeArgIdent`.hasKey(`fieldNameStr`):
-          result.`fieldNameIdent` = `parseFromJsonExpr`
+    result[6].add quote do:
+      if `jsonNodeArgIdent`.hasKey(`fieldNameStr`):
+        result.`fieldNameIdent` = `parseFromJsonExpr`
