@@ -12,27 +12,17 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-from apis/errors import MisskeyResponseError
-import apis/[
-  endpoint,
-  endpoints,
-  fetchrss,
-  getonlineusers,
-  invite,
-  meta,
-  ping,
-  serverinfo,
-  stats
-]
+import std/[json, httpcore]
+import ../clients
+import ../models/serverinfo
+import errors
 
-export MisskeyResponseError
-export
-  endpoint,
-  endpoints,
-  fetchrss,
-  getonlineusers,
-  invite,
-  meta,
-  ping,
-  serverinfo,
-  stats
+proc serverInfo*[T](client: MisskeyClient[T]): ServerInfo =
+  ## Gets the server information.
+  let response = client.request("server-info", newJObject())
+
+  if response.code == Http200:
+    result = response.body.toServerInfo()
+
+  else:
+    raise newMisskeyResponseError(response.code, response.body)

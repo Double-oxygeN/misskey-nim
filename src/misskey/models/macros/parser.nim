@@ -68,7 +68,7 @@ proc exprParseFromJson(typeNode, jsonNodeExpr: NimNode; parseTable: ParseTable):
 
   else:
     case typeNode.strVal
-    of "int", "Natural":
+    of "int", "Natural", "Positive":
       result = quote do: `jsonNodeExpr`.getInt()
 
     of "float":
