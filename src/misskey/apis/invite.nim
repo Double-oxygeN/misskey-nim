@@ -27,10 +27,3 @@ proc invite*[T](client: MisskeyClient[T]): InvitationCode =
 
   else:
     raise newMisskeyResponseError(response.code, response.body)
-
-
-when isMainModule:
-  let client = newMisskeyClient("http://localhost:28080")
-
-  client.putAccessToken("y8zDaaEUtDCZV2vvNvOYpTQl5zOkQ7Rd")
-  echo client.invite()
