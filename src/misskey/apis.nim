@@ -14,6 +14,7 @@
 
 from apis/errors import MisskeyResponseError
 import apis/[
+  announcements,
   emoji,
   emojis,
   endpoint,
@@ -29,6 +30,7 @@ import apis/[
 
 export MisskeyResponseError
 export
+  announcements,
   emoji,
   emojis,
   endpoint,
