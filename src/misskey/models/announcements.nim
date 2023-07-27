@@ -12,18 +12,23 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-import models/utils/[versions, invitationcodes]
-import models/announcements
-import models/emojis
-import models/fetchrssresult, models/fetchrss/rssitems
-import models/meta, models/meta/[ads, features, policies]
-import models/serverinfo, models/serverinfo/[cpuinfo, filesysteminfo, memoryinfo]
-import models/stats
+import std/[json, options, times, uri]
+import macros/parser
 
-export versions, invitationcodes
-export announcements
-export emojis
-export fetchrssresult, rssitems
-export meta, ads, features, policies
-export serverinfo, cpuinfo, filesysteminfo, memoryinfo
-export stats
+type
+  Announcement* = ref object
+    id: string
+    createdAt: DateTime
+    updatedAt: Option[DateTime]
+    text, title: string
+    imageUrl: Option[Uri]
+    isRead: Option[bool]
+
+
+proc toAnnouncement*(node: JsonNode): Announcement {.genModel(Announcement).} =
+  ## Converts a JSON node to an `Announcement` object.
+  new result
+
+  parseTable(fieldNode):
+    Uri: fieldNode.getStr().parseUri()
+    DateTime: fieldNode.getStr().parse("uuuu-MM-dd'T'HH:mm:ss'.'fff'Z'")
