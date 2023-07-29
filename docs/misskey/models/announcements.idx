@@ -1,0 +1,2 @@
+Announcement	misskey/models/announcements.html#Announcement	announcements: Announcement	
+toAnnouncement	misskey/models/announcements.html#toAnnouncement,JsonNode	announcements: toAnnouncement(node: JsonNode): Announcement	
