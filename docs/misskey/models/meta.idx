@@ -1,2 +1,7 @@
+MetaCommon	misskey/models/meta.html#MetaCommon	meta: MetaCommon	
 Meta	misskey/models/meta.html#Meta	meta: Meta	
+SensitiveMediaDetectionMode	misskey/models/meta.html#SensitiveMediaDetectionMode	meta: SensitiveMediaDetectionMode	
+SensitiveMediaDetectionSensitivity	misskey/models/meta.html#SensitiveMediaDetectionSensitivity	meta: SensitiveMediaDetectionSensitivity	
+MetaAdmin	misskey/models/meta.html#MetaAdmin	meta: MetaAdmin	
 toMeta	misskey/models/meta.html#toMeta,JsonNode	meta: toMeta(node: JsonNode): Meta	
+toMetaAdmin	misskey/models/meta.html#toMetaAdmin,JsonNode	meta: toMetaAdmin(node: JsonNode): MetaAdmin	

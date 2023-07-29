@@ -1,0 +1,1 @@
+adminMeta	misskey/apis/admin/meta.html#adminMeta,MisskeyClient[T]	meta: adminMeta[T](client: MisskeyClient[T]): MetaAdmin	
