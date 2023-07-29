@@ -12,36 +12,17 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-from apis/errors import MisskeyResponseError
-import apis/[
-  announcements,
-  emoji,
-  emojis,
-  endpoint,
-  endpoints,
-  fetchrss,
-  getonlineusers,
-  invite,
-  meta,
-  ping,
-  serverinfo,
-  stats
-]
-import apis/admin/meta as admMeta
+import std/[json, httpcore]
+import ../../clients
+import ../../models/meta
+import ../errors
 
-export MisskeyResponseError
-export
-  announcements,
-  emoji,
-  emojis,
-  endpoint,
-  endpoints,
-  fetchrss,
-  getonlineusers,
-  invite,
-  meta,
-  ping,
-  serverinfo,
-  stats
-export
-  admMeta
+proc adminMeta*[T](client: MisskeyClient[T]): MetaAdmin =
+  ## Gets meta information for admin.
+  let response = client.request("admin/meta", newJObject())
+
+  if response.code == Http200:
+    result = response.body.toMetaAdmin()
+
+  else:
+    raise newMisskeyResponseError(response.code, response.body)
