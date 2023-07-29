@@ -12,33 +12,23 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-from apis/errors import MisskeyResponseError
-import apis/[
-  announcements,
-  emoji,
-  emojis,
-  endpoint,
-  endpoints,
-  fetchrss,
-  getonlineusers,
-  invite,
-  meta,
-  ping,
-  serverinfo,
-  stats
-]
+import std/[json, options, times, uri]
+import macros/parser
 
-export MisskeyResponseError
-export
-  announcements,
-  emoji,
-  emojis,
-  endpoint,
-  endpoints,
-  fetchrss,
-  getonlineusers,
-  invite,
-  meta,
-  ping,
-  serverinfo,
-  stats
+type
+  Announcement* = ref object
+    id*: string
+    createdAt*: DateTime
+    updatedAt*: Option[DateTime]
+    text*, title*: string
+    imageUrl*: Option[Uri]
+    isRead*: Option[bool]
+
+
+proc toAnnouncement*(node: JsonNode): Announcement {.genModel(Announcement).} =
+  ## Converts a JSON node to an `Announcement` object.
+  new result
+
+  parseTable(fieldNode):
+    Uri: fieldNode.getStr().parseUri()
+    DateTime: fieldNode.getStr().parse("uuuu-MM-dd'T'HH:mm:ss'.'fff'Z'", utc())
