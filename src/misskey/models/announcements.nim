@@ -17,12 +17,12 @@ import macros/parser
 
 type
   Announcement* = ref object
-    id: string
-    createdAt: DateTime
-    updatedAt: Option[DateTime]
-    text, title: string
-    imageUrl: Option[Uri]
-    isRead: Option[bool]
+    id*: string
+    createdAt*: DateTime
+    updatedAt*: Option[DateTime]
+    text*, title*: string
+    imageUrl*: Option[Uri]
+    isRead*: Option[bool]
 
 
 proc toAnnouncement*(node: JsonNode): Announcement {.genModel(Announcement).} =
@@ -31,4 +31,4 @@ proc toAnnouncement*(node: JsonNode): Announcement {.genModel(Announcement).} =
 
   parseTable(fieldNode):
     Uri: fieldNode.getStr().parseUri()
-    DateTime: fieldNode.getStr().parse("uuuu-MM-dd'T'HH:mm:ss'.'fff'Z'")
+    DateTime: fieldNode.getStr().parse("uuuu-MM-dd'T'HH:mm:ss'.'fff'Z'", utc())
