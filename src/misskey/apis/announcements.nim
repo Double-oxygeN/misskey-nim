@@ -18,7 +18,7 @@ import ../clients
 import ../models/announcements
 import errors
 
-proc announcements*[T](client: MisskeyClient[T]; limit: range[1..100] = 10; withUnreads = false; sinceId, untilId = ""): seq[Announcement] =
+proc announcements*[T](client: MisskeyClient[T]; limit: range[1..100] = 10; withUnreads = false; sinceId = ""; untilId = ""): seq[Announcement] =
   ## Gets announcements.
   let args = %* {
     "limit": limit,

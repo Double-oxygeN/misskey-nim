@@ -23,6 +23,12 @@ jobs:
           command: nimble test
       - generate-docs
 
+  exec-tests_2_0_0:
+    docker:
+      - image: nimlang/nim:2.0.0
+
+    steps: *steps-tests
+
   exec-tests_latest:
     docker:
       - image: nimlang/nim:latest
@@ -31,7 +37,7 @@ jobs:
 
   update-docs:
     docker:
-      - image: nimlang/nim:1.6.12
+      - image: nimlang/nim:latest
 
     steps:
       - add_ssh_keys:
@@ -60,12 +66,16 @@ workflows:
             branches:
               ignore: docs
 
+      - exec-tests_2_0_0:
+          filters: *filters-tests
+
       - exec-tests_latest:
           filters: *filters-tests
 
       - update-docs:
           requires:
             - exec-tests_1_6_12
+            - exec-tests_2_0_0
             - exec-tests_latest
           filters:
             branches:
