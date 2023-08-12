@@ -1,1 +1,1 @@
-announcements	misskey/apis/announcements.html#announcements,MisskeyClient[T],range[],string,string	announcements: announcements[T](client: MisskeyClient[T]; limit: range[1 .. 100] = 10;\n                 withUnreads = false; sinceId, untilId = &quot;&quot;): seq[Announcement]	
+announcements	misskey/apis/announcements.html#announcements,MisskeyClient[T],range[],string,string	announcements: announcements[T](client: MisskeyClient[T]; limit: range[1 .. 100] = 10;\n                 withUnreads = false; sinceId = &quot;&quot;; untilId = &quot;&quot;): seq[\n    Announcement]	
